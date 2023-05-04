@@ -44,6 +44,7 @@ class _WhatIsYourNamePageState extends State<WhatIsYourNamePage> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(
+
         decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topCenter,

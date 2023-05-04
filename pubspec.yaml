@@ -34,6 +34,12 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  fade_scroll_app_bar: ^0.0.7
+  new_gradient_app_bar: ^0.2.0
+  icon_text_button: ^0.1.7
+  hero_button: ^1.0.4
+  google_fonts: ^4.0.4
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -51,12 +57,18 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  assets:
+    - lib/Svg/
+    - lib/Fonts/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  fonts:
+    - family: Pacifico
+      fonts:
+        - asset: lib/Fonts/Pacifico-Regular.ttf
+          weight: 500
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -85,5 +97,6 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see

@@ -11,7 +11,12 @@ import 'package:swipe_cards/swipe_cards.dart';
 import '../AppBars/meetme_appbar.dart';
 import '../Utils/horizontal_divider.dart';
 import 'MyCard.dart';
+class Content {
+  final String text;
+  final Color color;
 
+  Content({required this.text, required this.color});
+}
 class SlideMe extends StatelessWidget {
   const SlideMe({Key? key}) : super(key: key);
 
@@ -33,28 +38,32 @@ class SlideMePage extends StatefulWidget {
   State<SlideMePage> createState() => _SlideMePageState();
 }
 
-List<SwipeItem> _swipeItems = <SwipeItem>[];
-MatchEngine _matchEngine = MatchEngine();
-GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-int amountOfCards = 1;
 
-@override
-void initState() {
-  for (int i = 0; i < amountOfCards; i++) {
-    _swipeItems.add(SwipeItem(
-      content: MyCard(),
-      likeAction: () {},
-      nopeAction: () {},
-    ));
-  }
-  _matchEngine = MatchEngine(swipeItems: _swipeItems);
-}
 
 class _SlideMePageState extends State<SlideMePage> {
+  List<SwipeItem> _swipeItems = <SwipeItem>[];
+  MatchEngine _matchEngine = MatchEngine();
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  int amountOfCards = 500;
+
+
+  @override
+  void initState() {
+    for (int i = 0; i < amountOfCards; i++) {
+      _swipeItems.add(SwipeItem(
+        content: MyCard(),
+        likeAction: () {print("LIKE");},
+        nopeAction: () {print("FUCK");},
+      ));
+    }
+    _matchEngine = MatchEngine(swipeItems: _swipeItems);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+
+    _matchEngine = MatchEngine(swipeItems: _swipeItems);
     return Scaffold(
-      key: _scaffoldKey,
       appBar: NewGradientAppBar(
         title: SizedBox(
             width: 267 / MediaQuery.of(context).devicePixelRatio,
@@ -152,14 +161,16 @@ class _SlideMePageState extends State<SlideMePage> {
         ],
       ),
       body: Center(
-          child: SwipeCards(
-            matchEngine: _matchEngine,
-            itemBuilder: (BuildContext context, int index) {
-              print(index);
-              return Container(width: 500, height: 500, color: Colors.black,);
-            },
-            onStackFinished: () {},
-            fillSpace: true,
+          child: Container(
+
+            child: SwipeCards(
+              matchEngine: _matchEngine,
+              itemBuilder: (BuildContext context, int index) {
+                return _swipeItems[index].content; // TODO MyCard(name: _swipeItems[index].content.name)
+              },
+              onStackFinished: () {},
+              fillSpace: false,
+            ),
           ),
         ),
     );

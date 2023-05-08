@@ -79,14 +79,11 @@ class MyCard extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.37,
                             height:
                             MediaQuery.of(context).size.width * 0.075,
-                            child: Flexible(
-                                fit: FlexFit.tight,
-                                flex: 0,
-                                child: Text(
-                                  "Цель знакомств: дружба, общение, переписка, отношения, флирт",
-                                  softWrap: true,
-                                  style: TextStyle(fontSize: 32),
-                                )),
+                            child: Text( //TODO сделать скалирование
+                              "Цель знакомств: дружба, общение, переписка, отношения, флирт",
+                              softWrap: true,
+                              style: TextStyle(fontSize: 32),
+                            ),
                           ),
                         ),
                         FittedBox(
@@ -95,13 +92,10 @@ class MyCard extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.37,
                             height:
                             MediaQuery.of(context).size.width * 0.075,
-                            child: Flexible(
-                                fit: FlexFit.tight,
-                                flex: 0,
-                                child: Text(
-                                  "Теги: путешествовать, вкусная еда, активность",
-                                  style: TextStyle(fontSize: 32),
-                                )),
+                            child: Text( //TODO сделать скалирование
+                              "Теги: путешествовать, вкусная еда, активность",
+                              style: TextStyle(fontSize: 32),
+                            ),
                           ),
                         ),
                         HorizontalDivider(height: 16),
@@ -112,12 +106,9 @@ class MyCard extends StatelessWidget {
                               MediaQuery.of(context).size.width * 0.37,
                               height:
                               MediaQuery.of(context).size.width * 0.075,
-                              child: Flexible(
-                                flex: 0,
-                                child: Text(
-                                  "Образование: cornwall collegiate & vocational school",
-                                  style: TextStyle(fontSize: 32),
-                                ),
+                              child: Text(//TODO сделать скалирование
+                                "Образование: cornwall collegiate & vocational school",
+                                style: TextStyle(fontSize: 32),
                               ),
                             )),
                         HorizontalDivider(height: 16),

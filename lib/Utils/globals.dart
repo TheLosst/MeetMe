@@ -1,3 +1,5 @@
+import 'User.dart';
+
 const List<String> defaultText = ["Укажите свой пол","С кем вы хотите познакомиться?","Какая у вас цель      знакомства?","какого роста Вы ищете","какого веса Вы ищете","Как Вас зовут?","Когда у Вас день рождения?","Найдено"];
 const List<String> sex = ["Мужчина", "Женщина"];
 const List<String> withSex = ["С мужчинами","С женщинами","Со всеми"];
@@ -10,3 +12,4 @@ const List<String> loginField = ["Ваше имя","Введите Ваше им
 const List<String> birthday = ["День","Месяц","Год"];
 String chooseSex = "TestValue";
 int matchNumber = 0;
+User user = User();

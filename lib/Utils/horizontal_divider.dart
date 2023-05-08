@@ -10,7 +10,7 @@ class HorizontalDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: height,
+      height: height / MediaQuery.of(context).devicePixelRatio,
     );
   }
 }

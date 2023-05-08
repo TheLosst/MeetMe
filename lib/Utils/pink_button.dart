@@ -1,17 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Pages/Registration/who_do_you_want_to_meet.dart';
+
 class ButtonPink extends StatelessWidget {
-  const ButtonPink({
+  ButtonPink({
     Key? key,
     required this.text,
     required this.width,
     required this.height,
+    required this.getSexed,
+
   }) : super(key: key);
 
   final String text;
-  final int width;
-  final int height;
+  final double width;
+  final double height;
+  final Function getSexed;
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +43,9 @@ class ButtonPink extends StatelessWidget {
                 offset: Offset(0, 3))
           ]),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          getSexed();
+        },
         style: ElevatedButton.styleFrom(
           primary: Colors.transparent,
           shadowColor: Colors.transparent,

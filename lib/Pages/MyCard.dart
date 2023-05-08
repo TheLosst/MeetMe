@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meet_me/Utils/globals.dart';
 
 import '../Utils/horizontal_divider.dart';
 
@@ -122,6 +123,7 @@ class MyCard extends StatelessWidget {
                                   MediaQuery.of(context).devicePixelRatio,
                               child: IconButton(
                                   onPressed: () {
+                                    matchEngine.currentItem?.nope();
                                     print("</3");
                                   },
                                   icon: Image.asset(
@@ -132,17 +134,21 @@ class MyCard extends StatelessWidget {
                               width: 101 /
                                   MediaQuery.of(context).devicePixelRatio,
                             ),
-                            SizedBox(
-                              width: 70 /
-                                  MediaQuery.of(context).devicePixelRatio,
-                              height: 70 /
-                                  MediaQuery.of(context).devicePixelRatio,
-                              child: IconButton(
-                                  onPressed: () {
-                                    print("<3");
-                                  },
-                                  icon: Image.asset(
-                                      "lib/Icons/heart colored.png")),
+                            FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: SizedBox(
+                                width: 70 /
+                                    MediaQuery.of(context).devicePixelRatio,
+                                height: 70 /
+                                    MediaQuery.of(context).devicePixelRatio,
+                                child: IconButton(
+                                    onPressed: () {
+                                      matchEngine.currentItem?.like();
+                                      print("<3");
+                                    },
+                                    icon: Image.asset(
+                                        "lib/Icons/heart colored.png")),
+                              ),
                             )
                           ],
                         )

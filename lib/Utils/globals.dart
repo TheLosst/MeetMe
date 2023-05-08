@@ -1,3 +1,5 @@
+import 'package:swipe_cards/swipe_cards.dart';
+
 import 'User.dart';
 
 const List<String> defaultText = ["Укажите свой пол","С кем вы хотите познакомиться?","Какая у вас цель      знакомства?","какого роста Вы ищете","какого веса Вы ищете","Как Вас зовут?","Когда у Вас день рождения?","Найдено"];
@@ -13,3 +15,4 @@ const List<String> birthday = ["День","Месяц","Год"];
 String chooseSex = "TestValue";
 int matchNumber = 0;
 User user = User();
+MatchEngine matchEngine = MatchEngine();

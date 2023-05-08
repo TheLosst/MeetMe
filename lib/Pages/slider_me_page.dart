@@ -9,6 +9,7 @@ import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:swipe_cards/swipe_cards.dart';
 
 import '../AppBars/meetme_appbar.dart';
+import '../Utils/globals.dart';
 import '../Utils/horizontal_divider.dart';
 import 'MyCard.dart';
 class Content {
@@ -42,7 +43,7 @@ class SlideMePage extends StatefulWidget {
 
 class _SlideMePageState extends State<SlideMePage> {
   List<SwipeItem> _swipeItems = <SwipeItem>[];
-  MatchEngine _matchEngine = MatchEngine();
+
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   int amountOfCards = 500;
 
@@ -56,13 +57,13 @@ class _SlideMePageState extends State<SlideMePage> {
         nopeAction: () {print("FUCK");},
       ));
     }
-    _matchEngine = MatchEngine(swipeItems: _swipeItems);
+    matchEngine = MatchEngine(swipeItems: _swipeItems);
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
 
-    _matchEngine = MatchEngine(swipeItems: _swipeItems);
+    matchEngine = MatchEngine(swipeItems: _swipeItems);
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
@@ -164,7 +165,7 @@ class _SlideMePageState extends State<SlideMePage> {
           child: Container(
 
             child: SwipeCards(
-              matchEngine: _matchEngine,
+              matchEngine: matchEngine,
               itemBuilder: (BuildContext context, int index) {
                 return _swipeItems[index].content; // TODO MyCard(name: _swipeItems[index].content.name)
               },

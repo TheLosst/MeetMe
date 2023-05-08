@@ -1,10 +1,11 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:meet_me/Pages/Registration/who_do_you_want_to_meet.dart';
+import 'package:meet_me/Utils/Push.dart';
 import 'package:meet_me/Utils/pink_button.dart';
 import 'package:meet_me/Utils/globals.dart';
-import '../Utils/horizontal_divider.dart';
-
+import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+import '../../Utils/horizontal_divider.dart';
 
 class ChooseSex extends StatelessWidget {
   const ChooseSex({Key? key}) : super(key: key);
@@ -27,7 +28,6 @@ class ChooseSexPage extends StatefulWidget {
 
   final String title;
 
-
   @override
   State<ChooseSexPage> createState() => _ChooseSexPageState();
 }
@@ -38,6 +38,20 @@ class _ChooseSexPageState extends State<ChooseSexPage> {
   @override
   Widget build(BuildContext context1) {
     return Scaffold(
+      appBar: NewGradientAppBar(
+        title: SizedBox(
+            width: 267 / MediaQuery.of(context).devicePixelRatio,
+            height: 105 / MediaQuery.of(context).devicePixelRatio,
+            child: IconButton(
+              icon: SvgPicture.asset("lib/Svg/MeetMe white.svg"),
+              onPressed: () {},
+            )),
+        gradient: LinearGradient(colors: [
+          Color.fromRGBO(255, 64, 144, 1),
+          Color.fromRGBO(255, 64, 144, 1)
+        ]),
+        elevation: 0,
+      ),
       backgroundColor: Colors.transparent,
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -65,25 +79,40 @@ class _ChooseSexPageState extends State<ChooseSexPage> {
               height: 358 / MediaQuery.of(context).devicePixelRatio,
               child: Column(
                 children: [
-                  HorizontalDivider(height: 40 / MediaQuery.of(context).devicePixelRatio),
+                  const HorizontalDivider(height: 40),
                   Center(
                     child: Text(
                       defaultText[0],
                       style: const TextStyle(fontSize: 40),
                     ),
                   ),
-                  HorizontalDivider(height: 80 / MediaQuery.of(context).devicePixelRatio),
+                  const HorizontalDivider(height: 80),
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        ButtonPink(text: sex[0], width: 183, height: 59,),
+                        ButtonPink(
+                            text: sex[0],
+                            width: 183,
+                            height: 59,
+                            getSexed: () {
+                              user.sex = true;
+                              Push().PushTo(WhoDoYouWantToMeet(), context);
+                            }),
                         SizedBox(
                           width: 75 / MediaQuery.of(context).devicePixelRatio,
                           height: 0,
                         ),
-                        ButtonPink(text: sex[1], width: 183, height: 59,)
+                        ButtonPink(
+                          text: sex[1],
+                          width: 183,
+                          height: 59,
+                          getSexed: () {
+                            user.sex = false;
+                            Push().PushTo(WhoDoYouWantToMeet(), context);
+                          },
+                        )
                       ],
                     ),
                   ),
@@ -96,5 +125,3 @@ class _ChooseSexPageState extends State<ChooseSexPage> {
     );
   }
 }
-
-

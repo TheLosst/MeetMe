@@ -40,6 +40,7 @@ dependencies:
   hero_button: ^1.0.4
   google_fonts: ^4.0.4
   flutter_svg: ^1.1.6
+  swipe_cards: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +61,7 @@ flutter:
   assets:
     - lib/Svg/
     - lib/Fonts/
+    - lib/Icons/
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

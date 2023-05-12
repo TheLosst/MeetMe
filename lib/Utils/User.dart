@@ -13,5 +13,18 @@ class User
   late String password = "test";
 
   User();
+  void getAll()
+  {
+    print(sex);
+    print(withMeets);
+    print(targetMeet);
+    print(targetHeight);
+    print(targetFat);
+    print(name);
+    print(birthDay);
+    print(email);
+    print(password);
+  }
+
 
 }

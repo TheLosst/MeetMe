@@ -42,7 +42,7 @@ class MyCard extends StatelessWidget {
                 decoration: BoxDecoration(),
                 child: Center(
                     child: Image.network(
-                      "lib/Temp/image 1.png",
+                      "lib/Temp/CardSlidePhotoTemp.png",
                       width: MediaQuery.of(context).size.width * 0.23,
                       height: MediaQuery.of(context).size.height * 0.6,
                     )),

@@ -5,13 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:meet_me/Pages/Profile.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:swipe_cards/swipe_cards.dart';
 
 import '../AppBars/meetme_appbar.dart';
+import '../Utils/Push.dart';
 import '../Utils/globals.dart';
 import '../Utils/horizontal_divider.dart';
 import 'MyCard.dart';
+import 'Registration/who_do_you_want_to_meet.dart';
 class Content {
   final String text;
   final Color color;
@@ -149,7 +152,7 @@ class _SlideMePageState extends State<SlideMePage> {
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {},
+                onPressed: () {Push().PushTo(Profile(), context);},
                 icon: Image.asset("lib/Icons/user 1.png",
                     color: Colors.black,
                     width: 30 / MediaQuery.of(context).devicePixelRatio,

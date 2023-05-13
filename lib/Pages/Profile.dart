@@ -6,6 +6,9 @@ import 'package:meet_me/Utils/Push.dart';
 import 'package:meet_me/Utils/horizontal_divider.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
+import '../AppBars/meetme_appbar.dart';
+import 'MeetMeChat.dart';
+
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -34,8 +37,12 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
-            width: 267 / MediaQuery.of(context).devicePixelRatio,
-            height: 105 / MediaQuery.of(context).devicePixelRatio,
+            width: 267 / MediaQuery
+                .of(context)
+                .devicePixelRatio,
+            height: 105 / MediaQuery
+                .of(context)
+                .devicePixelRatio,
             child: IconButton(
               icon: SvgPicture.asset("lib/Svg/MeetMe.svg"),
               onPressed: () {},
@@ -48,18 +55,28 @@ class _ProfilePageState extends State<ProfilePage> {
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {Push().PushTo(SlideMe(), context);},
+                onPressed: () {
+                  Push().PushTo(SlideMe(), context);
+                },
                 icon: Image.asset("lib/Icons/heart 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
+                    width: 30 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio,
+                    height: 32 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio),
                 label: Text(
                   "Знакомства",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery.of(context).size.height * 0.02),
+          SizedBox(width: MediaQuery
+              .of(context)
+              .size
+              .height * 0.02),
           SizedBox(
+
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
@@ -68,14 +85,21 @@ class _ProfilePageState extends State<ProfilePage> {
                 onPressed: () {},
                 icon: Image.asset("lib/Icons/search 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
+                    width: 30 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio,
+                    height: 32 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio),
                 label: Text(
                   "Поиск",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery.of(context).size.height * 0.17),
+          SizedBox(width: MediaQuery
+              .of(context)
+              .size
+              .height * 0.17),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
@@ -85,42 +109,60 @@ class _ProfilePageState extends State<ProfilePage> {
                 onPressed: () {},
                 icon: Image.asset("lib/Icons/bell 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
+                    width: 30 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio,
+                    height: 32 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio),
                 label: Text(
                   "События",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery.of(context).size.height * 0.02),
+          SizedBox(width: MediaQuery
+              .of(context)
+              .size
+              .height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {},
+                onPressed: () {Push().PushTo(MeetMeChat(), context);},
                 icon: Image.asset("lib/Icons/conversation 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
+                    width: 30 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio,
+                    height: 32 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio),
                 label: Text(
                   "Сообщения",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery.of(context).size.height * 0.02),
+          SizedBox(width: MediaQuery
+              .of(context)
+              .size
+              .height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {},
+                onPressed: () {Push().PushTo(Profile(), context);},
                 icon: Image.asset("lib/Icons/user 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
+                    width: 30 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio,
+                    height: 32 / MediaQuery
+                        .of(context)
+                        .devicePixelRatio),
                 label: Text(
                   "Профиль",
                   style: TextStyle(color: Colors.black),
@@ -409,3 +451,4 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
+

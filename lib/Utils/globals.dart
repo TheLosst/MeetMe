@@ -1,3 +1,5 @@
+//import 'dart:ffi';
+
 import 'package:swipe_cards/swipe_cards.dart';
 
 import 'User.dart';
@@ -12,6 +14,7 @@ const String next = "Далее";
 const List<String> registerMail = ["Регистрация с почтой", "Электронная почта", "Введите электронную почту"];
 const List<String> loginField = ["Ваше имя","Введите Ваше имя"];
 const List<String> birthday = ["День","Месяц","Год"];
+List<bool> kekv = [true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false,];
 String chooseSex = "TestValue";
 int matchNumber = 0;
 User user = User();

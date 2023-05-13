@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:meet_me/Pages/MeetMeChat.dart';
 import 'package:meet_me/Pages/Profile.dart';
 import 'package:meet_me/Pages/Registration/choose_sex_page.dart';
 //import 'package:meet_me/Pages/Registration/whens_your_birthday.dart';
@@ -11,6 +12,6 @@ import 'Pages/Slide_me_page.dart';
 
 
 void main() {
-  runApp(const Profile());
+  runApp(const MeetMeChat());
 }
 

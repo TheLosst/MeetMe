@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:meet_me/Pages/Slide_me_page.dart';
+import 'package:meet_me/Pages/MeetMeSlidePeople.dart';
 import 'package:meet_me/Utils/Push.dart';
 import 'package:meet_me/Utils/horizontal_divider.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 import '../AppBars/meetme_appbar.dart';
 import 'MeetMeChat.dart';
+import 'MeetMeEvents.dart';
+import 'MeetMeSearch.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -82,7 +84,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {},
+                onPressed: () {Push().PushTo(MeetMeSearchPage(), context);},
                 icon: Image.asset("lib/Icons/search 1.png",
                     color: Colors.black,
                     width: 30 / MediaQuery
@@ -106,7 +108,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {},
+                onPressed: () {Push().PushTo(MeetMeEvents(), context);},
                 icon: Image.asset("lib/Icons/bell 1.png",
                     color: Colors.black,
                     width: 30 / MediaQuery

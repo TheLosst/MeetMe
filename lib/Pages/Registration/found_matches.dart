@@ -5,7 +5,7 @@ import 'package:meet_me/Utils/globals.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import '../../Utils/Push.dart';
 import '../../Utils/horizontal_divider.dart';
-import '../Slide_me_page.dart';
+import '../MeetMeSlidePeople.dart';
 
 class FoundMatches extends StatelessWidget {
   const FoundMatches({Key? key}) : super(key: key);

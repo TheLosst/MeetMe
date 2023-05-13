@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meet_me/Utils/globals.dart';
 
-import '../Utils/horizontal_divider.dart';
+import '../../Utils/horizontal_divider.dart';
 
 class MyCard extends StatelessWidget {
   const MyCard({

@@ -35,6 +35,7 @@ class MeetMeEventsPage extends StatefulWidget {
 }
 
 class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
+  ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -390,9 +391,10 @@ class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
                     ),
                     SizedBox(
                       width: 1000,
-                      height: 500,
+                      height: 550,
                       child: ListView.builder(
-                          itemCount: 2,
+                        controller: _scrollController,
+                          itemCount: 15,
                           itemBuilder: (BuildContext context, int index) =>
                               NewContactWidget(
                                   user,

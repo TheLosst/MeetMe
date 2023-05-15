@@ -12,6 +12,6 @@ import 'Pages/MeetMeSlidePeople.dart';
 
 
 void main() {
-  runApp(const MeetMeChat());
+  runApp(const ChooseSex());
 }
 

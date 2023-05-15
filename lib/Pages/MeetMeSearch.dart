@@ -7,6 +7,7 @@ import '../Utils/MyChatBubles.dart';
 import '../Utils/Push.dart';
 import '../Utils/globals.dart';
 import 'ItemsToBuild/NewContatsWidget.dart';
+import 'ItemsToBuild/SearchCardMeetMe.dart';
 import 'MeetMeChat.dart';
 import 'MeetMeEvents.dart';
 import 'MeetMeProfile.dart';
@@ -263,26 +264,22 @@ class _MeetMeSearchPageState extends State<MeetMeSearchPage> {
                                 "Курсед")),
                   )),
               Padding(
-                padding: const EdgeInsets.only(left: 1078, top: 0),
+                padding: const EdgeInsets.only(left: 1078, top: 143),
                 child: Column(
                   children: [
                     Container(
-                      width: 877,
-                      height: 1000,
+                      width: 1000,
+                      height: 1200,
                       child: GridView.builder(
                           gridDelegate:
                               SliverGridDelegateWithMaxCrossAxisExtent(
-                                  maxCrossAxisExtent: 200,
-                                  childAspectRatio: 3 / 2,
-                                  crossAxisSpacing: 20,
-                                  mainAxisSpacing: 20),
+                                  maxCrossAxisExtent: 400,
+                                  childAspectRatio: 2 / 3,
+                                  crossAxisSpacing: 80,
+                                  mainAxisSpacing: 119),
                           itemCount: 10,
                           itemBuilder: (BuildContext context, int index) =>
-                              Container(
-                                width: 282,
-                                height: 405,
-                                color: Colors.black,
-                              )),
+                              SearchCardMeetMe(context, "Курсед","Ебать в очко")),
                     ),
                     SizedBox(
                       width: 1100,
@@ -298,3 +295,5 @@ class _MeetMeSearchPageState extends State<MeetMeSearchPage> {
     );
   }
 }
+
+

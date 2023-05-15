@@ -68,6 +68,7 @@ class MeetMeBubble extends StatelessWidget {
               alignment: isSender ? Alignment.topRight : Alignment.topLeft,
               tail: tail),
           child: Container(
+            //decoration: const BoxDecoration(boxShadow: [BoxShadow(blurRadius: 1, color: Colors.black, offset: Offset(1, 1))]),
             constraints: BoxConstraints(
               maxWidth: MediaQuery.of(context).size.width * .7,
             ),

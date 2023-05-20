@@ -5,6 +5,7 @@ import 'package:meet_me/Pages/Registration/found_matches.dart';
 import 'package:meet_me/Utils/pink_button.dart';
 import 'package:meet_me/Utils/globals.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+import '../../Utils/InputFormatterDate.dart';
 import '../../Utils/Push.dart';
 import '../../Utils/horizontal_divider.dart';
 
@@ -46,8 +47,8 @@ class _WhensYourBirthdayPageState extends State<WhensYourBirthdayPage> {
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
-            width: 267 / MediaQuery.of(context).devicePixelRatio,
-            height: 105 / MediaQuery.of(context).devicePixelRatio,
+            width: 267,
+            height: 105,
             child: IconButton(
               icon: SvgPicture.asset("lib/Svg/MeetMe white.svg"),
               onPressed: () {},
@@ -79,8 +80,8 @@ class _WhensYourBirthdayPageState extends State<WhensYourBirthdayPage> {
                         blurRadius: 7,
                         offset: Offset(0, 3))
                   ]),
-              width: 595 / MediaQuery.of(context).devicePixelRatio,
-              height: 358 / MediaQuery.of(context).devicePixelRatio,
+              width: 595,
+              height: 358,
               child: Column(
                 children: [
                   const HorizontalDivider(height: 30),
@@ -95,13 +96,13 @@ class _WhensYourBirthdayPageState extends State<WhensYourBirthdayPage> {
                     child: Row(
                       children: [
                         SizedBox(
-                          width: 80 / MediaQuery.of(context).devicePixelRatio,
-                          height: 0 / MediaQuery.of(context).devicePixelRatio,
+                          width: 80,
+                          height: 0,
                         ),
                         Center(
                           child: SizedBox(
-                            width: 107 / MediaQuery.of(context).devicePixelRatio,
-                            height: 59 / MediaQuery.of(context).devicePixelRatio,
+                            width: 107,
+                            height: 59,
                             child: TextFormField(
                               inputFormatters: <TextInputFormatter>[
                                 FilteringTextInputFormatter.digitsOnly,
@@ -120,13 +121,13 @@ class _WhensYourBirthdayPageState extends State<WhensYourBirthdayPage> {
                           ),
                         ),
                         SizedBox(
-                          width: 53 / MediaQuery.of(context).devicePixelRatio,
-                          height: 0 / MediaQuery.of(context).devicePixelRatio,
+                          width: 53,
+                          height: 0,
                         ),
                         Center(
                           child: SizedBox(
-                            width: 107 / MediaQuery.of(context).devicePixelRatio,
-                            height: 59 / MediaQuery.of(context).devicePixelRatio,
+                            width: 107,
+                            height: 59,
                             child: TextFormField(
                               inputFormatters: <TextInputFormatter>[
                                 FilteringTextInputFormatter.digitsOnly,
@@ -145,18 +146,19 @@ class _WhensYourBirthdayPageState extends State<WhensYourBirthdayPage> {
                           ),
                         ),
                         SizedBox(
-                          width: 53 / MediaQuery.of(context).devicePixelRatio,
-                          height: 0 / MediaQuery.of(context).devicePixelRatio,
+                          width: 53,
+                          height: 0,
                         ),
                         Center(
                           child: SizedBox(
-                            width: 107 / MediaQuery.of(context).devicePixelRatio,
-                            height: 59 / MediaQuery.of(context).devicePixelRatio,
+                            width: 107 ,
+                            height: 59,
                             child: TextFormField(
                               inputFormatters: <TextInputFormatter>[
-                                FilteringTextInputFormatter.digitsOnly,
+                                DateTextFormatter(),
+                                FilteringTextInputFormatter.allow(RegExp('\\d{0,2}\.\?\\d{0,2}\.\\d{0,4}')),
                               ],
-                              keyboardType: TextInputType.number,
+                              //keyboardType: TextInputType.number,
                               controller: yearInputController,
                               maxLength: 4,
                               decoration: InputDecoration(

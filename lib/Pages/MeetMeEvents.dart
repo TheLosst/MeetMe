@@ -144,113 +144,113 @@ class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
         ],
       ),
       body: Center(
-        child: FittedBox(
-          fit: BoxFit.contain,
-          child: Stack(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 51, top: 57),
-                child: Container(
-                  width: 504,
-                  height: 59,
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(255, 225, 238, 1),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      border: Border.all(color: Colors.white, width: 1),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(0.25),
-                            spreadRadius: 1,
-                            blurRadius: 1,
-                            offset: Offset(0, 1))
-                      ]),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                          width: 83,
-                          height: 39,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Все",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                            style: ButtonStyle(
-                                backgroundColor: MaterialStateColor.resolveWith(
-                                    (states) =>
-                                        Color.fromRGBO(225, 182, 200, 1)),
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ))),
-                          )),
-                      SizedBox(width: 37, height: 1),
-                      Container(
-                          width: 135,
-                          height: 39,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Онлайн",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                            style: ButtonStyle(
-                                backgroundColor: MaterialStateColor.resolveWith(
-                                    (states) =>
-                                        Color.fromRGBO(225, 182, 200, 1)),
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ))),
-                          )),
-                      SizedBox(width: 37, height: 1),
-                      Container(
-                          width: 195,
-                          height: 39,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Избранные",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                            style: ButtonStyle(
-                                backgroundColor: MaterialStateColor.resolveWith(
-                                    (states) =>
-                                        Color.fromRGBO(225, 182, 200, 1)),
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ))),
-                          )),
-                    ],
-                  ),
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 51, top: 57),
+              child: Container(
+                width: 504,
+                height: 59,
+                decoration: BoxDecoration(
+                    color: Color.fromRGBO(255, 225, 238, 1),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    border: Border.all(color: Colors.white, width: 1),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.25),
+                          spreadRadius: 1,
+                          blurRadius: 1,
+                          offset: Offset(0, 1))
+                    ]),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                        width: 83,
+                        height: 39,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Все",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 28,
+                                fontWeight: FontWeight.w300),
+                          ),
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateColor.resolveWith(
+                                  (states) =>
+                                      Color.fromRGBO(225, 182, 200, 1)),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ))),
+                        )),
+                    SizedBox(width: 37, height: 1),
+                    Container(
+                        width: 135,
+                        height: 39,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Онлайн",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 28,
+                                fontWeight: FontWeight.w300),
+                          ),
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateColor.resolveWith(
+                                  (states) =>
+                                      Color.fromRGBO(225, 182, 200, 1)),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ))),
+                        )),
+                    SizedBox(width: 37, height: 1),
+                    Container(
+                        width: 195,
+                        height: 39,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Избранные",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 28,
+                                fontWeight: FontWeight.w300),
+                          ),
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateColor.resolveWith(
+                                  (states) =>
+                                      Color.fromRGBO(225, 182, 200, 1)),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ))),
+                        )),
+                  ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 51, top: 146),
-                child: Text(
-                  "Новые контакты: ",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
-                ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 51, top: 146),
+              child: Text(
+                "Новые контакты: ",
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
               ),
-              Padding(
-                  padding: EdgeInsets.only(left: 51, top: 203),
-                  child: Container(
+            ),
+            Padding(
+                padding: EdgeInsets.only(left: 51, top: 203),
+                child: Flexible(
+                  fit: FlexFit.loose,
+                  flex: 0,
+                  child: SizedBox(
                     width: 515,
-                    height: 800,
                     child: ListView.builder(
                         itemCount: 2,
                         itemBuilder: (BuildContext context, int index) =>
@@ -260,138 +260,139 @@ class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
                                 Color.fromRGBO(255, 239, 246, 1),
                                 "Fuck Me",
                                 "Курсед")),
-                  )),
-              Padding(
-                padding: const EdgeInsets.only(left: 1078, top: 0),
-                child: Column(
-                  children: [
-                    Text(
-                      "События: ",
-                      style:
-                          TextStyle(fontSize: 28, fontWeight: FontWeight.w500),
+                  ),
+                )),
+            Padding(
+              padding: const EdgeInsets.only(left: 1078, top: 0),
+              child: Column(
+                children: [
+                  Text(
+                    "События: ",
+                    style:
+                        TextStyle(fontSize: 28, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    width: 1,
+                    height: 11,
+                  ),
+                  Container(
+                    width: 650,
+                    height: 59,
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 225, 238, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        border: Border.all(color: Colors.white, width: 1),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.25),
+                              spreadRadius: 1,
+                              blurRadius: 1,
+                              offset: Offset(0, 1))
+                        ]),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                            width: 83,
+                            height: 39,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Все",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateColor
+                                      .resolveWith((states) =>
+                                          Color.fromRGBO(225, 182, 200, 1)),
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ))),
+                            )),
+                        SizedBox(width: 37, height: 1),
+                        Container(
+                            width: 110,
+                            height: 39,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Гости",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateColor
+                                      .resolveWith((states) =>
+                                          Color.fromRGBO(225, 182, 200, 1)),
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ))),
+                            )),
+                        SizedBox(width: 37, height: 1),
+                        Container(
+                            width: 115,
+                            height: 39,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Лайки",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateColor
+                                      .resolveWith((states) =>
+                                          Color.fromRGBO(225, 182, 200, 1)),
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ))),
+                            )),
+                        SizedBox(width: 37, height: 1),
+                        Container(
+                            width: 195,
+                            height: 39,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Избранные",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w300),
+                              ),
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateColor
+                                      .resolveWith((states) =>
+                                          Color.fromRGBO(225, 182, 200, 1)),
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ))),
+                            )),
+                      ],
                     ),
-                    SizedBox(
-                      width: 1,
-                      height: 11,
-                    ),
-                    Container(
-                      width: 650,
-                      height: 59,
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(255, 225, 238, 1),
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          border: Border.all(color: Colors.white, width: 1),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.25),
-                                spreadRadius: 1,
-                                blurRadius: 1,
-                                offset: Offset(0, 1))
-                          ]),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                              width: 83,
-                              height: 39,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Все",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateColor
-                                        .resolveWith((states) =>
-                                            Color.fromRGBO(225, 182, 200, 1)),
-                                    shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ))),
-                              )),
-                          SizedBox(width: 37, height: 1),
-                          Container(
-                              width: 110,
-                              height: 39,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Гости",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateColor
-                                        .resolveWith((states) =>
-                                            Color.fromRGBO(225, 182, 200, 1)),
-                                    shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ))),
-                              )),
-                          SizedBox(width: 37, height: 1),
-                          Container(
-                              width: 115,
-                              height: 39,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Лайки",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateColor
-                                        .resolveWith((states) =>
-                                            Color.fromRGBO(225, 182, 200, 1)),
-                                    shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ))),
-                              )),
-                          SizedBox(width: 37, height: 1),
-                          Container(
-                              width: 195,
-                              height: 39,
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Избранные",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w300),
-                                ),
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateColor
-                                        .resolveWith((states) =>
-                                            Color.fromRGBO(225, 182, 200, 1)),
-                                    shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ))),
-                              )),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 1,
-                      height: 75,
-                    ),
-                    SizedBox(
+                  ),
+                  SizedBox(
+                    width: 1,
+                    height: 75,
+                  ),
+                  Flexible(
+                    child: SizedBox(
                       width: 1000,
-                      height: 550,
                       child: ListView.builder(
                         controller: _scrollController,
                           itemCount: 15,
@@ -403,15 +404,15 @@ class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
                                   "Хотите написать первое сообщение?",
                                   "Match! Вы понравились Курсед ;)")),
                     ),
-                    SizedBox(
-                      width: 1100,
-                      height: 1,
-                    ),
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    width: 1100,
+                    height: 1,
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

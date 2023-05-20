@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:meet_me/Pages/Registration/login_page.dart';
 import 'package:meet_me/Pages/Registration/who_do_you_want_to_meet.dart';
 import 'package:meet_me/Utils/Push.dart';
 import 'package:meet_me/Utils/pink_button.dart';
@@ -75,8 +76,8 @@ class _ChooseSexPageState extends State<ChooseSexPage> {
                         blurRadius: 7,
                         offset: Offset(0, 3))
                   ]),
-              width: 595 / MediaQuery.of(context).devicePixelRatio,
-              height: 358 / MediaQuery.of(context).devicePixelRatio,
+              width: 595,
+              height: 358,
               child: Column(
                 children: [
                   const HorizontalDivider(height: 40),
@@ -88,33 +89,44 @@ class _ChooseSexPageState extends State<ChooseSexPage> {
                   ),
                   const HorizontalDivider(height: 80),
                   Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    child: Column(
                       children: [
-                        ButtonPink(
-                            text: sex[0],
-                            width: 183,
-                            height: 59,
-                            getSexed: () {
-                              user.sex = true;
-                              Push().PushTo(WhoDoYouWantToMeet(), context);
-                            }),
-                        SizedBox(
-                          width: 75 / MediaQuery.of(context).devicePixelRatio,
-                          height: 0,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            ButtonPink(
+                                text: sex[0],
+                                width: 183,
+                                height: 59,
+                                getSexed: () {
+                                  user.sex = "1";
+                                  Push().PushTo(WhoDoYouWantToMeet(), context);
+                                }),
+                            SizedBox(
+                              width: 75,
+                              height: 0,
+                            ),
+                            ButtonPink(
+                              text: sex[1],
+                              width: 183,
+                              height: 59,
+                              getSexed: () {
+                                user.sex = "0";
+                                Push().PushTo(WhoDoYouWantToMeet(), context);
+                              },
+                            ),
+                          ],
                         ),
-                        ButtonPink(
-                          text: sex[1],
-                          width: 183,
-                          height: 59,
-                          getSexed: () {
-                            user.sex = false;
-                            Push().PushTo(WhoDoYouWantToMeet(), context);
-                          },
-                        )
+                        SizedBox(
+                          width: 0,
+                          height: 75,
+                        ),
+                        ButtonPink(text: "Уже смешарик", width: 350, height: 59, getSexed: (){Push().PushTo(Login(), context);})
+
                       ],
                     ),
+
                   ),
                 ],
               ),

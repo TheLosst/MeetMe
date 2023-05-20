@@ -2,15 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meet_me/Utils/globals.dart';
 
+import '../../Utils/User.dart';
 import '../../Utils/horizontal_divider.dart';
 
 class MyCard extends StatelessWidget {
   const MyCard({
-    Key? key,
+    Key? key, required this.user
   }) : super(key: key);
+
+  final User? user;
+
+
 
   @override
   Widget build(BuildContext context) {
+    MyCard kek = MyCard(user: user);
     return FittedBox(
       fit: BoxFit.contain,
       child: Container(
@@ -41,11 +47,25 @@ class MyCard extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.23,
                 decoration: BoxDecoration(),
                 child: Center(
-                    child: Image.network(
-                      "lib/Temp/CardSlidePhotoTemp.png",
-                      width: MediaQuery.of(context).size.width * 0.23,
-                      height: MediaQuery.of(context).size.height * 0.6,
-                    )),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.23,
+
+                    foregroundDecoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                        image: DecorationImage(
+                            image: NetworkImage(
+                              userLoggined.linkToIMG,
+                            ),
+                            fit: BoxFit.fill
+                        )
+                    ),
+                  )
+                    // child: Image.network(
+                    //   kek.user!.linkToIMG,
+                    //   width: MediaQuery.of(context).size.width * 0.23,
+                    //   height: MediaQuery.of(context).size.height * 0.6,
+                    // )
+                ),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.29,
@@ -61,7 +81,7 @@ class MyCard extends StatelessWidget {
                         FittedBox(
                             fit: BoxFit.scaleDown,
                             child: Text(
-                              "Райан, 42",
+                              "${kek.user!.username}, ${kek.user!.birthDay}",
                               textAlign: TextAlign.left,
                               style: TextStyle(fontSize: 40),
                             )),

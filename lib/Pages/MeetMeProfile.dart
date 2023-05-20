@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meet_me/Pages/MeetMeSlidePeople.dart';
 import 'package:meet_me/Utils/Push.dart';
+import 'package:meet_me/Utils/globals.dart';
 import 'package:meet_me/Utils/horizontal_divider.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 import '../AppBars/meetme_appbar.dart';
 import 'MeetMeChat.dart';
+import 'MeetMeEditProfile.dart';
 import 'MeetMeEvents.dart';
 import 'MeetMeSearch.dart';
+import 'package:intl/intl.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -36,6 +39,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    final now = DateTime.now();
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
@@ -188,11 +192,23 @@ class _ProfilePageState extends State<ProfilePage> {
                   padding: EdgeInsets.only(top: 1080 * 0.16, left: 1920 * 0.08),
                   child: FittedBox(
                     fit: BoxFit.contain,
-                    child: Image.network(
-                      "lib/Temp/ProfilePhotoTemp.png",
-                      width: 416,
-                      height: 664,
+                    child: Container(
+                      width: 480,
+                      height: 620,
+                      foregroundDecoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                userLoggined.linkToIMG,
+                              ),
+                              fit: BoxFit.fill
+                          )
+                      ),
                     ),
+                    // child: Image.network(
+                    //   userLoggined.linkToIMG,
+                    //   width: 416,
+                    //   height: 664,
+                    // ),
                   ),
                 ),
                 Padding(
@@ -207,7 +223,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Имя: Даша",
+                              "Имя: ${userLoggined.username}",
                               style: TextStyle(
                                   fontSize: 28, fontWeight: FontWeight.w600),
                             ),
@@ -216,7 +232,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               width: 1,
                             ),
                             Text(
-                              "Возраст: 21",
+                              "Возраст: ${now.year - int.parse(userLoggined.birthDay.replaceRange(0, 6, ""))}",
                               style: TextStyle(
                                   fontSize: 28, fontWeight: FontWeight.w400),
                             ),
@@ -234,7 +250,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               width: 1,
                             ),
                             Text(
-                              "Описание: Расскажите немного о себе ",
+                              "Меня интересует: ${userLoggined.withMeets}",
                               style: TextStyle(
                                   fontSize: 28, fontWeight: FontWeight.w400),
                             ),
@@ -243,7 +259,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               width: 1,
                             ),
                             Text(
-                              "Меня интересует: парень",
+                              "В возрасте до: ${now.year - int.parse(userLoggined.birthDay.replaceRange(0, 6, "")) + 1}",
                               style: TextStyle(
                                   fontSize: 28, fontWeight: FontWeight.w400),
                             ),
@@ -252,7 +268,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               width: 1,
                             ),
                             Text(
-                              "В возрасте: 20-31",
+                              "Цель: ${userLoggined.targetMeet}",
                               style: TextStyle(
                                   fontSize: 28, fontWeight: FontWeight.w400),
                             ),
@@ -261,70 +277,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               width: 1,
                             ),
                             Text(
-                              "Цель: отношения",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 78,
-                              width: 1,
-                            ),
-                            Text(
-                              "Материальное положение",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Условия проживания",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Дети",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Образование",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Языки: Русский",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Курение",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Алкоголь",
+                              "Описание: ${userLoggined.aboutUser} ",
                               style: TextStyle(
                                   fontSize: 28, fontWeight: FontWeight.w400),
                             ),
@@ -333,66 +286,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         SizedBox(
                           height: 1,
                           width: 250,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Теги: ",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(
-                              height: 42,
-                              width: 1,
-                            ),
-                            Text(
-                              "Внешность",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Телосложение",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Рост",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Вес",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                            Text(
-                              "Ориентация",
-                              style: TextStyle(
-                                  fontSize: 28, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              height: 11,
-                              width: 1,
-                            ),
-                          ],
                         ),
                         SizedBox(
                           height: 1,
@@ -410,7 +303,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           width: 363,
                           height: 80,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {Push().PushTo(EditProfile(), context);},
                             child: Text("Редактировать анкету" ,style: TextStyle(color: Colors.black, fontSize: 28, fontWeight: FontWeight.w600),),
                             style: ButtonStyle(
                                 backgroundColor: MaterialStateColor.resolveWith(

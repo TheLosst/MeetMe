@@ -39,8 +39,8 @@ class _WhatIsYourPurposeOfDatingState
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
-            width: 267 / MediaQuery.of(context).devicePixelRatio,
-            height: 105 / MediaQuery.of(context).devicePixelRatio,
+            width: 267,
+            height: 105,
             child: IconButton(
               icon: SvgPicture.asset("lib/Svg/MeetMe white.svg"),
               onPressed: () {},
@@ -72,8 +72,8 @@ class _WhatIsYourPurposeOfDatingState
                         blurRadius: 7,
                         offset: Offset(0, 3))
                   ]),
-              width: 595 / MediaQuery.of(context).devicePixelRatio,
-              height: 544 / MediaQuery.of(context).devicePixelRatio,
+              width: 595,
+              height: 544,
               child: Column(
                 children: [
                   const HorizontalDivider(height: 40),
@@ -92,7 +92,7 @@ class _WhatIsYourPurposeOfDatingState
                     width: 373,
                     height: 59,
                     getSexed: () {
-                      user.targetMeet = 0;
+                      user.targetMeet = targetMeeting[0];
                       Push().PushTo(WhatSizeAreYouLookingFor(), context);
                     },
                   ),
@@ -102,7 +102,7 @@ class _WhatIsYourPurposeOfDatingState
                       width: 373,
                       height: 59,
                       getSexed: () {
-                        user.targetMeet = 1;
+                        user.targetMeet = targetMeeting[1];
                         Push().PushTo(WhatSizeAreYouLookingFor(), context);
                       }),
                   const HorizontalDivider(height: 30),
@@ -111,7 +111,7 @@ class _WhatIsYourPurposeOfDatingState
                       width: 373,
                       height: 59,
                       getSexed: () {
-                        user.targetMeet = 2;
+                        user.targetMeet = targetMeeting[2];
                         Push().PushTo(WhatSizeAreYouLookingFor(), context);
                       }),
                 ],

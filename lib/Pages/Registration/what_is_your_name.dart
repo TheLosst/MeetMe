@@ -42,8 +42,8 @@ class _WhatIsYourNamePageState extends State<WhatIsYourNamePage> {
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
-            width: 267 / MediaQuery.of(context).devicePixelRatio,
-            height: 105 / MediaQuery.of(context).devicePixelRatio,
+            width: 267,
+            height: 105,
             child: IconButton(
               icon: SvgPicture.asset("lib/Svg/MeetMe white.svg"),
               onPressed: () {},
@@ -75,8 +75,8 @@ class _WhatIsYourNamePageState extends State<WhatIsYourNamePage> {
                         blurRadius: 7,
                         offset: Offset(0, 3))
                   ]),
-              width: 595 / MediaQuery.of(context).devicePixelRatio,
-              height: 358 / MediaQuery.of(context).devicePixelRatio,
+              width: 595,
+              height: 358,
               child: Column(
                 children: [
                   const HorizontalDivider(height: 50),
@@ -89,8 +89,8 @@ class _WhatIsYourNamePageState extends State<WhatIsYourNamePage> {
                   const HorizontalDivider(height: 60),
                   Center(
                     child: SizedBox(
-                      width: 356 / MediaQuery.of(context).devicePixelRatio,
-                      height: 59 / MediaQuery.of(context).devicePixelRatio,
+                      width: 356,
+                      height: 59,
                       child: TextFormField(
                         controller: usernameController,
                         maxLength: 32,
@@ -111,7 +111,7 @@ class _WhatIsYourNamePageState extends State<WhatIsYourNamePage> {
                     width: 183,
                     height: 59,
                     getSexed: () {
-                      user.name = usernameController.text;
+                      user.username = usernameController.text;
                       Push().PushTo(WhensYourBirthday(), context);
                     },
                   )

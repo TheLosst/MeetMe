@@ -70,8 +70,8 @@ class _WhatIsYourPurposeOfDatingState
                         blurRadius: 7,
                         offset: Offset(0, 3))
                   ]),
-              width: 595 / MediaQuery.of(context).devicePixelRatio,
-              height: 544 / MediaQuery.of(context).devicePixelRatio,
+              width: 595,
+              height: 544,
               child: Column(
                 children: [
                   const HorizontalDivider(height: 40),
@@ -90,7 +90,7 @@ class _WhatIsYourPurposeOfDatingState
                     width: 373,
                     height: 59,
                     getSexed: () {
-                      user.targetFat = 60;
+                      user.targetFat = "60";
                       Push().PushTo(WhatIsYourName(), context);
                     },
                   ),
@@ -100,7 +100,7 @@ class _WhatIsYourPurposeOfDatingState
                     width: 373,
                     height: 59,
                     getSexed: () {
-                      user.targetFat = 80;
+                      user.targetFat = "80";
                       Push().PushTo(WhatIsYourName(), context);
                     },
                   ),
@@ -110,7 +110,7 @@ class _WhatIsYourPurposeOfDatingState
                     width: 373,
                     height: 59,
                     getSexed: () {
-                      user.targetFat = 100;
+                      user.targetFat = "100";
                       Push().PushTo(WhatIsYourName(), context);
                     },
                   ),
@@ -120,7 +120,7 @@ class _WhatIsYourPurposeOfDatingState
                     width: 373,
                     height: 59,
                     getSexed: () {
-                      user.targetFat = 0;
+                      user.targetFat = "0";
                       Push().PushTo(WhatIsYourName(), context);
                     },
                   ),

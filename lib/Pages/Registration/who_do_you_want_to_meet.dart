@@ -39,8 +39,8 @@ class _WhoDoYouWantToMeetPageState extends State<WhoDoYouWantToMeetPage> {
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
-            width: 267 / MediaQuery.of(context).devicePixelRatio,
-            height: 105 / MediaQuery.of(context).devicePixelRatio,
+            width: 267,
+            height: 105,
             child: IconButton(
               icon: SvgPicture.asset("lib/Svg/MeetMe white.svg"),
               onPressed: () {},
@@ -72,8 +72,8 @@ class _WhoDoYouWantToMeetPageState extends State<WhoDoYouWantToMeetPage> {
                         blurRadius: 7,
                         offset: Offset(0, 3))
                   ]),
-              width: 595 / MediaQuery.of(context).devicePixelRatio,
-              height: 544 / MediaQuery.of(context).devicePixelRatio,
+              width: 595,
+              height: 544,
               child: Column(
                 children: [
                   const HorizontalDivider(height: 40),
@@ -92,7 +92,8 @@ class _WhoDoYouWantToMeetPageState extends State<WhoDoYouWantToMeetPage> {
                       width: 373,
                       height: 59,
                       getSexed: () {
-                        user.targetMeet = 0;
+                        user.withMeets = "0";
+                        chooseSex = "Мужчин ";
                         Push().PushTo(WhatIsYourPurposeOfDating(), context);
                       }),
                   const HorizontalDivider(height: 30),
@@ -101,7 +102,8 @@ class _WhoDoYouWantToMeetPageState extends State<WhoDoYouWantToMeetPage> {
                       width: 373,
                       height: 59,
                       getSexed: () {
-                        user.targetMeet = 1;
+                        user.withMeets = "1";
+                        chooseSex = "Женщин ";
                         Push().PushTo(WhatIsYourPurposeOfDating(), context);
                       }),
                   const HorizontalDivider(height: 30),
@@ -110,7 +112,8 @@ class _WhoDoYouWantToMeetPageState extends State<WhoDoYouWantToMeetPage> {
                       width: 373,
                       height: 59,
                       getSexed: () {
-                        user.targetMeet = 2;
+                        user.withMeets = "2";
+                        chooseSex = "Людей ";
                         Push().PushTo(WhatIsYourPurposeOfDating(), context);
                       }),
                 ],

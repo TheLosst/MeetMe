@@ -58,7 +58,7 @@ class _SlideMePageState extends State<SlideMePage> {
   void initState() {
     for (int i = 0; i < amountOfCards; i++) {
       _swipeItems.add(SwipeItem(
-        content: MyCard(),
+        content: MyCard(user: userLoggined,),
         likeAction: () {print("LIKE");},
         nopeAction: () {print("FUCK");},
       ));

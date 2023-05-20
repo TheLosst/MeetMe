@@ -1,4 +1,5 @@
 //import 'dart:ffi';
+import 'dart:math';
 
 import 'package:swipe_cards/swipe_cards.dart';
 
@@ -16,6 +17,24 @@ const List<String> loginField = ["Ваше имя","Введите Ваше им
 const List<String> birthday = ["День","Месяц","Год"];
 List<bool> kekv = [true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false,true,false,];
 String chooseSex = "TestValue";
-int matchNumber = 0;
-User user = User();
+
+int matchNumber = Random().nextInt(1500)%10*10;
+
+User user = User(id: 0 ,sex: "0",withMeets: "null",targetMeet: "null",targetHeight: "null",targetFat: "null",username: "null",birthDay: "null",email: "null",password: "null",liked: "0",aboutUser: "Тут пусто...",linkToIMG: "null");
+late User userLoggined;
+
+List<User> users = [];
 MatchEngine matchEngine = MatchEngine();
+
+String connIp = "http://192.168.56.101:80";
+
+final regExpLogin = RegExp(
+    r'[\^$*.\[\]{}()?\-"!@#%&/\,><:;_~`+='
+    ']'
+);
+
+final regExpEmail = RegExp(
+    r'[@.'
+    ']'
+);
+

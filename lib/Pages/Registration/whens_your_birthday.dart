@@ -155,8 +155,8 @@ class _WhensYourBirthdayPageState extends State<WhensYourBirthdayPage> {
                             height: 59,
                             child: TextFormField(
                               inputFormatters: <TextInputFormatter>[
-                                DateTextFormatter(),
-                                FilteringTextInputFormatter.allow(RegExp('\\d{0,2}\.\?\\d{0,2}\.\\d{0,4}')),
+                                //DateTextFormatter(),
+                                //FilteringTextInputFormatter.allow(RegExp('\\d{0,2}\.\?\\d{0,2}\.\\d{0,4}')),
                               ],
                               //keyboardType: TextInputType.number,
                               controller: yearInputController,

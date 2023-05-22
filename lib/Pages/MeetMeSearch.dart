@@ -261,7 +261,7 @@ class _MeetMeSearchPageState extends State<MeetMeSearchPage> {
                                 context,
                                 Color.fromRGBO(255, 239, 246, 1),
                                 "Fuck Me",
-                                "Курсед")),
+                                "Курсед"," ",false,0)),
                   )),
               Padding(
                 padding: const EdgeInsets.only(left: 1078, top: 143),

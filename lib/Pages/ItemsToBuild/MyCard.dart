@@ -16,7 +16,7 @@ class MyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MyCard kek = MyCard(user: user);
+    //MyCard kek = MyCard(user: user);
     return FittedBox(
       fit: BoxFit.contain,
       child: Container(
@@ -54,7 +54,7 @@ class MyCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(40),
                         image: DecorationImage(
                             image: NetworkImage(
-                              userLoggined.linkToIMG,
+                              user!.linkToIMG,
                             ),
                             fit: BoxFit.fill
                         )
@@ -81,7 +81,7 @@ class MyCard extends StatelessWidget {
                         FittedBox(
                             fit: BoxFit.scaleDown,
                             child: Text(
-                              "${kek.user!.username}, ${kek.user!.birthDay}",
+                              "${user!.username}, ${user!.birthDay}",
                               textAlign: TextAlign.left,
                               style: TextStyle(fontSize: 40),
                             )),
@@ -101,7 +101,7 @@ class MyCard extends StatelessWidget {
                             height:
                             MediaQuery.of(context).size.width * 0.075,
                             child: Text( //TODO сделать скалирование
-                              "Цель знакомств: дружба, общение, переписка, отношения, флирт",
+                              user!.targetMeet,
                               softWrap: true,
                               style: TextStyle(fontSize: 32),
                             ),
@@ -114,24 +114,12 @@ class MyCard extends StatelessWidget {
                             height:
                             MediaQuery.of(context).size.width * 0.075,
                             child: Text( //TODO сделать скалирование
-                              "Теги: путешествовать, вкусная еда, активность",
+                              user!.aboutUser,
                               style: TextStyle(fontSize: 32),
                             ),
                           ),
                         ),
                         HorizontalDivider(height: 16),
-                        FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: Container(
-                              width:
-                              MediaQuery.of(context).size.width * 0.37,
-                              height:
-                              MediaQuery.of(context).size.width * 0.075,
-                              child: Text(//TODO сделать скалирование
-                                "Образование: cornwall collegiate & vocational school",
-                                style: TextStyle(fontSize: 32),
-                              ),
-                            )),
                         HorizontalDivider(height: 16),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -171,6 +159,22 @@ class MyCard extends StatelessWidget {
                               ),
                             )
                           ],
+                        ),
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: SizedBox(
+                            width: 70 /
+                                MediaQuery.of(context).devicePixelRatio,
+                            height: 70 /
+                                MediaQuery.of(context).devicePixelRatio,
+                            child: IconButton(
+                                onPressed: () {
+                                  matchEngine.currentItem?.superLike();
+                                  print("<3");
+                                },
+                                icon: Image.asset(
+                                    "lib/Icons/conversation 1.png")),
+                          ),
                         )
                       ],
                     ),

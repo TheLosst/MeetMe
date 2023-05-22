@@ -258,8 +258,9 @@ class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
                                 user,
                                 context,
                                 Color.fromRGBO(255, 239, 246, 1),
-                                "Fuck Me",
-                                "Курсед")),
+                                "Test",
+                                "Курсед",
+                            " ", false,0)),
                   ),
                 )),
             Padding(
@@ -402,7 +403,7 @@ class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
                                   context,
                                   Color.fromRGBO(255, 239, 246, 1),
                                   "Хотите написать первое сообщение?",
-                                  "Match! Вы понравились Курсед ;)")),
+                                  "Match! Вы понравились Курсед ;)","test", false,0)),
                     ),
                   ),
                   SizedBox(

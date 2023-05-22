@@ -248,6 +248,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 child: TextFormField(
                                   controller: age,
                                   maxLength: 32,
+                                  keyboardType: TextInputType.number,
                                   inputFormatters: [
                                     FilteringTextInputFormatter.allow(RegExp(
                                         '\\d{0,2}\.\?\\d{0,2}\.\\d{0,4}')),

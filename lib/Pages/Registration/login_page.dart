@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
       var responseProfile = await http.post(Uri.parse(profilepage), body: {
         "email": user.email,
       });
-      print(responseProfile.body);
+      print("Login php ${responseProfile.body}");
       var data = json.decode(response.body);
 
 

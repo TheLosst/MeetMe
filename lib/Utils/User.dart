@@ -40,7 +40,7 @@ class User {
   String aboutUser = "Тут пусто...";
   String linkToIMG = "null";
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
+  factory User.fromJson(json) => User(
         id: json['id'],
         sex: json['sex'].toString(),
         withMeets: json['withMeets'].toString(),

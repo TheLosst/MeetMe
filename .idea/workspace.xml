@@ -8,60 +8,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc5055e4-e1dc-4b60-af46-b4123aeff14a" name="Changes" comment="Проект перестроен под веб">
-      <change afterPath="$PROJECT_DIR$/lib/Pages/MeetMeEditProfile.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Pages/Registration/login_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Temp/image 7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Utils/InputFormatterDate.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/000010.log" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/000010.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Utils/ListMessages.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Utils/MessagesClass.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/LOG.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/app.dill.deps" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/app.dill.deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/dart2js.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/dart2js.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/dart2js.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/dart2js.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/flutter_assets.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/main.dart.js" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/main.dart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/service_worker.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/service_worker.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/web_release_bundle.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/web_release_bundle.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/web_service_worker.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/2424230422b9001d5042825f354042d2/web_service_worker.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/meet_me_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/meet_me_android.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/canvaskit/canvaskit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/canvaskit/canvaskit.wasm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/canvaskit/profiling/canvaskit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/canvaskit/profiling/canvaskit.wasm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/flutter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/flutter_service_worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/flutter_service_worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/main.dart.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/main.dart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/flutter_assets/NOTICES" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/ItemsToBuild/MyCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/ItemsToBuild/MyCard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Pages/ItemsToBuild/NewContatsWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/ItemsToBuild/NewContatsWidget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeChat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeChat.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeEditProfile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeEditProfile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeEvents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeEvents.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeProfile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeProfile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeSearch.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeSearch.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeSlidePeople.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeSlidePeople.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/Registration/choose_sex_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/Registration/choose_sex_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Pages/Registration/found_matches.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/Registration/found_matches.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Pages/Registration/what_is_your_name.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/Registration/what_is_your_name.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Pages/Registration/what_is_your_purpose_of_dating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/Registration/what_is_your_purpose_of_dating.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Pages/Registration/what_size_are_you_looking_for.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/Registration/what_size_are_you_looking_for.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Pages/Registration/what_weight_are_you_looking_for.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/Registration/what_weight_are_you_looking_for.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Pages/Registration/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/Registration/login_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/Registration/whens_your_birthday.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/Registration/whens_your_birthday.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Pages/Registration/who_do_you_want_to_meet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/Registration/who_do_you_want_to_meet.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Utils/User.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/User.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Utils/globals.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/globals.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Utils/horizontal_divider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/horizontal_divider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
@@ -214,16 +183,5 @@
     <MESSAGE value="Добавлена страница профиля" />
     <MESSAGE value="Проект перестроен под веб" />
     <option name="LAST_COMMIT_MESSAGE" value="Проект перестроен под веб" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/Pages/MeetMeEditProfile.dart</url>
-          <line>340</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

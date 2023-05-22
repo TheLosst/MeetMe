@@ -248,6 +248,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "progress_indicators",
+      "rootUri": "file:///C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/progress_indicators-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/tools/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -332,7 +338,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2023-05-20T07:19:46.728956Z",
+  "generated": "2023-05-21T15:49:00.277826Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }

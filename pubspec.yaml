@@ -43,6 +43,7 @@ dependencies:
   swipe_cards: ^2.0.0+1
   chat_bubbles: ^1.4.1
   intl: ^0.18.1
+  progress_indicators: ^1.0.0
 
 dev_dependencies:
   flutter_test:

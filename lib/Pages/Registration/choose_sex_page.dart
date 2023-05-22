@@ -120,7 +120,7 @@ class _ChooseSexPageState extends State<ChooseSexPage> {
                         ),
                         SizedBox(
                           width: 0,
-                          height: 75,
+                          height: 35,
                         ),
                         ButtonPink(text: "Уже смешарик", width: 350, height: 59, getSexed: (){Push().PushTo(Login(), context);})
 

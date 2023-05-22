@@ -1,5 +1,5 @@
-import 'dart:js';
-
+import 'dart:convert';
+import 'package:progress_indicators/progress_indicators.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -7,8 +7,10 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meet_me/Pages/MeetMeChat.dart';
 import 'package:meet_me/Pages/MeetMeProfile.dart';
+import 'package:meet_me/Utils/User.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:swipe_cards/swipe_cards.dart';
+import 'package:http/http.dart' as http;
 
 import '../AppBars/meetme_appbar.dart';
 import '../Utils/Push.dart';
@@ -18,12 +20,8 @@ import 'MeetMeEvents.dart';
 import 'ItemsToBuild/MyCard.dart';
 import 'MeetMeSearch.dart';
 import 'Registration/who_do_you_want_to_meet.dart';
-class Content {
-  final String text;
-  final Color color;
 
-  Content({required this.text, required this.color});
-}
+
 class SlideMe extends StatelessWidget {
   const SlideMe({Key? key}) : super(key: key);
 
@@ -45,31 +43,65 @@ class SlideMePage extends StatefulWidget {
   State<SlideMePage> createState() => _SlideMePageState();
 }
 
-
-
 class _SlideMePageState extends State<SlideMePage> {
   List<SwipeItem> _swipeItems = <SwipeItem>[];
 
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  int amountOfCards = 500;
+  int amountOfCards = 3;
 
+  Future<List<User>> createUsers() async {
+    //List<DiskProp> test = await fetchDiskDescr();
+    usersSwipeListData = await fetchAllUsers();
+    for (int i = 0; i < amountOfCards; i++) {
+      _swipeItems.add(SwipeItem(
+        content: MyCard(user: usersSwipeListData.elementAt(i)),
+        superlikeAction: () {
+          messageTo = usersSwipeListData.elementAt(i);
+          Push().PushTo(MeetMeChat(), context);
+        },
+        likeAction: () {
+          print("LIKE");
+          //if(userLoggined.liked)
+          userLoggined.liked += ",${usersSwipeListData.elementAt(i).id.toString()}";
+          print(userLoggined.liked);
+        },
+        nopeAction: () {
+          print("FUCK");
+        },
+      ));
+    }
+    amountOfCards = usersSwipeListData.length;
+    return usersSwipeListData;
+  }
+
+  Future<List<User>> fetchAllUsers() async {
+    final response =
+    await http.get(Uri.parse('$connIp/GetListUsersMeetMe.php'));
+    if (response.statusCode == 200) {
+      var buff = json.decode(response.body);
+      print(buff);
+      return buff.map<User>(User.fromJson).toList();
+    } else {
+      throw Exception('Все сломалось!');
+    }
+  }
 
   @override
   void initState() {
-    for (int i = 0; i < amountOfCards; i++) {
-      _swipeItems.add(SwipeItem(
-        content: MyCard(user: userLoggined,),
-        likeAction: () {print("LIKE");},
-        nopeAction: () {print("FUCK");},
-      ));
-    }
-    matchEngine = MatchEngine(swipeItems: _swipeItems);
-    super.initState();
-  }
-  @override
-  Widget build(BuildContext context) {
+    //print(cock[0].aboutUser);
+
 
     matchEngine = MatchEngine(swipeItems: _swipeItems);
+    super.
+    initState
+      (
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    matchEngine = MatchEngine(swipeItems: _swipeItems);
+
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
@@ -112,13 +144,14 @@ class _SlideMePageState extends State<SlideMePage> {
               .size
               .height * 0.02),
           SizedBox(
-
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {Push().PushTo(MeetMeSearchPage(), context);},
+                onPressed: () {
+                  Push().PushTo(MeetMeSearchPage(), context);
+                },
                 icon: Image.asset("lib/Icons/search 1.png",
                     color: Colors.black,
                     width: 30 / MediaQuery
@@ -142,7 +175,9 @@ class _SlideMePageState extends State<SlideMePage> {
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {Push().PushTo(MeetMeEvents(), context);},
+                onPressed: () {
+                  Push().PushTo(MeetMeEvents(), context);
+                },
                 icon: Image.asset("lib/Icons/bell 1.png",
                     color: Colors.black,
                     width: 30 / MediaQuery
@@ -166,7 +201,9 @@ class _SlideMePageState extends State<SlideMePage> {
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {Push().PushTo(MeetMeChat(), context);},
+                onPressed: () {
+                  Push().PushTo(MeetMeChat(), context);
+                },
                 icon: Image.asset("lib/Icons/conversation 1.png",
                     color: Colors.black,
                     width: 30 / MediaQuery
@@ -190,7 +227,9 @@ class _SlideMePageState extends State<SlideMePage> {
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {Push().PushTo(Profile(), context);},
+                onPressed: () {
+                  Push().PushTo(Profile(), context);
+                },
                 icon: Image.asset("lib/Icons/user 1.png",
                     color: Colors.black,
                     width: 30 / MediaQuery
@@ -207,18 +246,32 @@ class _SlideMePageState extends State<SlideMePage> {
         ],
       ),
       body: Center(
-          child: Container(
-
-            child: SwipeCards(
-              matchEngine: matchEngine,
-              itemBuilder: (BuildContext context, int index) {
-                return _swipeItems[index].content; // TODO MyCard(name: _swipeItems[index].content.name)
-              },
-              onStackFinished: () {},
-              fillSpace: false,
-            ),
-          ),
-        ),
-    );
+          child: FutureBuilder<List<User>>(
+              future: createUsers(),
+              builder:
+              (BuildContext context, AsyncSnapshot<List<User>?> snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return SwipeCards(
+                  matchEngine: matchEngine,
+                  itemBuilder: (BuildContext context, int index) {
+                    return _swipeItems[index]
+                        .content; // TODO MyCard(name: _swipeItems[index].content.name)
+                  },
+                  onStackFinished: () {},
+                  fillSpace: false,
+                );
+              } else {
+                return Center(
+                  child: CollectionSlideTransition(
+                    children: const <Widget>[
+                      Icon(Icons.accessible),
+                      Icon(Icons.arrow_right_alt),
+                      Icon(Icons.accessible_forward_sharp),
+                    ],
+                  ),
+                );
+              }
+            }),
+    ),);
   }
 }

@@ -47,7 +47,7 @@ class _SlideMePageState extends State<SlideMePage> {
   List<SwipeItem> _swipeItems = <SwipeItem>[];
 
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  int amountOfCards = 3;
+  int amountOfCards = usersSwipeListData.length;
 
   Future<List<User>> createUsers() async {
     //List<DiskProp> test = await fetchDiskDescr();
@@ -161,7 +161,7 @@ class _SlideMePageState extends State<SlideMePage> {
                         .of(context)
                         .devicePixelRatio),
                 label: Text(
-                  "Поиск",
+                  "Избранное",
                   style: TextStyle(color: Colors.black),
                 )),
           ),

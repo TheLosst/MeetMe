@@ -85,22 +85,6 @@ Future<List<ListMessages>> buildListMess() async{
   return toUsers;
 }
 
-void reloadIn30sec(BuildContext context) async{
-  while(true)
-    {
-      var duration = const Duration(seconds: 30);
-      sleep(duration);
-      rebuildAllChildren(context);
-    }
-}
-
-void rebuildAllChildren(BuildContext context) {
-  void rebuild(Element el) {
-    el.markNeedsBuild();
-    el.visitChildren(rebuild);
-  }
-  (context as Element).visitChildren(rebuild);
-}
 
 Future<void> createUsers() async {
   //List<DiskProp> test = await fetchDiskDescr();
@@ -180,7 +164,7 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                     width: 30 / MediaQuery.of(context).devicePixelRatio,
                     height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
-                  "Поиск",
+                  "Избранное",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
@@ -362,10 +346,10 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                                     user,
                                     context,
                                     Color.fromRGBO(255, 239, 246, 1),
-                                    usersSwipeListData.elementAt(int.parse(toUsers.elementAt(index).id)-1).targetMeet.isEmpty ? "null" : usersSwipeListData.elementAt(int.parse(toUsers.elementAt(index).id)-1).targetMeet,
-                                    usersSwipeListData.elementAt(int.parse(toUsers.elementAt(index).id)-1).username.isEmpty ? "null" : usersSwipeListData.elementAt(int.parse(toUsers.elementAt(index).id)-1).username,
-                                    usersSwipeListData.elementAt(int.parse(toUsers.elementAt(index).id)-1).linkToIMG .isEmpty ? "null" : usersSwipeListData.elementAt(int.parse(toUsers.elementAt(index).id)-1).linkToIMG,
-                                true, index)
+                                    usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).targetMeet,
+                                    usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).username,
+                                    usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).linkToIMG,
+                                    true, searchUsers(int.parse(toUsers.elementAt(index).id)))
                           );
                         } else {
                           return Center(
@@ -436,7 +420,7 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                                       seen: true,
                                       tail: false,
                                       isSender: mes.elementAt(index).fromUser == userLoggined.id.toString() ? true : false,
-                                      nameSender: usersSwipeListData.elementAt(int.parse(mes.elementAt(index).fromUser)-1).username,
+                                      nameSender: usersSwipeListData.elementAt(searchUsers(int.parse(mes.elementAt(index).fromUser))).username,
                                     ),
                                   );
                                 }

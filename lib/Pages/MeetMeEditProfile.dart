@@ -121,7 +121,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     width: 30 / MediaQuery.of(context).devicePixelRatio,
                     height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
-                  "Поиск",
+                  "Избранное",
                   style: TextStyle(color: Colors.black),
                 )),
           ),

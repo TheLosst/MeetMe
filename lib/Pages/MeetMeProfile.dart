@@ -98,7 +98,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         .of(context)
                         .devicePixelRatio),
                 label: Text(
-                  "Поиск",
+                  "Избранное",
                   style: TextStyle(color: Colors.black),
                 )),
           ),

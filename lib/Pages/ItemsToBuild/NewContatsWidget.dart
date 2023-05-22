@@ -86,7 +86,7 @@ Widget NewContactWidget(User? user, context, var color, String text,
               height: 30,
               child: ElevatedButton(
                 onPressed: () {
-                  messageTo = usersSwipeListData.elementAt(i+1);
+                  messageTo = usersSwipeListData.elementAt(i);
                   Push().PushTo(MeetMeChat(), context);
                 },
                 child: Text("M"),

@@ -1,16 +1,22 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meet_me/Utils/horizontal_divider.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+import 'package:progress_indicators/progress_indicators.dart';
 
+import '../Utils/ListMessages.dart';
 import '../Utils/Push.dart';
+import '../Utils/User.dart';
 import '../Utils/globals.dart';
 import 'ItemsToBuild/NewContatsWidget.dart';
 import 'MeetMeChat.dart';
 import 'MeetMeProfile.dart';
 import 'MeetMeSearch.dart';
 import 'MeetMeSlidePeople.dart';
+import 'package:http/http.dart' as http;
 
 class MeetMeEvents extends StatelessWidget {
   const MeetMeEvents({Key? key}) : super(key: key);
@@ -34,10 +40,62 @@ class MeetMeEventsPage extends StatefulWidget {
   State<MeetMeEventsPage> createState() => _MeetMeEventsPageState();
 }
 
+Future<void> createUsers() async {
+  //List<DiskProp> test = await fetchDiskDescr();
+  usersSwipeListData = await fetchAllUsers();
+}
+
+
+int searchUsers(int inputID){
+  for(int i = 0; i < usersSwipeListData.length; i++)
+    {
+      // print("________________");
+      // print(inputID);
+      // print(usersSwipeListData.elementAt(i).id);
+      // print(usersSwipeListData.elementAt(i).email);
+      // print(i);
+      // print("________________");
+      if (usersSwipeListData.elementAt(i).id == inputID)
+        {
+          print("${usersSwipeListData.elementAt(i).id} -> ${i}");
+          return i;
+        }
+    }
+  return 0;
+}
+
+Future<List<User>> fetchAllUsers() async {
+  final response =
+  await http.get(Uri.parse('$connIp/GetListUsersMeetMe.php'));
+  if (response.statusCode == 200) {
+    var buff = json.decode(response.body);
+    print(buff);
+    return buff.map<User>(User.fromJson).toList();
+  } else {
+    throw Exception('Все сломалось!');
+  }
+}
+Future<List<ListMessages>> getListSendedUsers() async{
+  final response = await http.post(Uri.parse('$connIp/getUserIDToSended.php'),
+      body: {"id": userLoggined.id.toString(),
+      });
+  print(json.decode(response.body));
+  return json.decode(response.body).map<ListMessages>(ListMessages.fromJson).toList();
+}
+
+Future<List<ListMessages>> buildListMess() async{
+  toUsers = await getListSendedUsers();
+  print("toUsers");
+  print(toUsers.length);
+  print("toUsers");
+  return toUsers;
+}
+
 class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
   ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
+    createUsers();
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
@@ -80,7 +138,7 @@ class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
                     width: 30 / MediaQuery.of(context).devicePixelRatio,
                     height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
-                  "Поиск",
+                  "Избранное",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
@@ -246,21 +304,37 @@ class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
             ),
             Padding(
                 padding: EdgeInsets.only(left: 51, top: 203),
-                child: Flexible(
-                  fit: FlexFit.loose,
-                  flex: 0,
-                  child: SizedBox(
-                    width: 515,
-                    child: ListView.builder(
-                        itemCount: 2,
-                        itemBuilder: (BuildContext context, int index) =>
-                            NewContactWidget(
-                                user,
-                                context,
-                                Color.fromRGBO(255, 239, 246, 1),
-                                "Test",
-                                "Курсед",
-                            " ", false,0)),
+                child: Container(
+                  width: 515,
+                  height: 800,
+                  child: FutureBuilder<List<ListMessages>>(
+                    future: buildListMess(),
+                    builder: (BuildContext context, AsyncSnapshot<List<ListMessages>?> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        return ListView.builder(
+                            itemCount: toUsers.length,
+                            itemBuilder: (BuildContext context, int index) =>
+                                NewContactWidget(
+                                    user,
+                                    context,
+                                    Color.fromRGBO(255, 239, 246, 1),
+                                    usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).targetMeet,
+                                    usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).username,
+                                    usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).linkToIMG,
+                                    true, searchUsers(int.parse(toUsers.elementAt(index).id)))
+                        );
+                      } else {
+                        return Center(
+                          child: CollectionSlideTransition(
+                            children: const <Widget>[
+                              Icon(Icons.accessible),
+                              Icon(Icons.arrow_right_alt),
+                              Icon(Icons.accessible_forward_sharp),
+                            ],
+                          ),
+                        );
+                      }
+                    },
                   ),
                 )),
             Padding(

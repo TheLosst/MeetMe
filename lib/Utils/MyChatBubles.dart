@@ -14,7 +14,7 @@ class MeetMeBubble extends StatelessWidget {
 
   const MeetMeBubble({
     Key? key,
-    required this.nameSender,
+    this.nameSender = "Вы",
     this.isSender = true,
     required this.text,
     this.color = Colors.white70,
@@ -82,7 +82,7 @@ class MeetMeBubble extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
-                    isSender ? "Вы" : nameSender,
+                    isSender ? " " : nameSender,
                     style: TextStyle(fontWeight: FontWeight.w600),
                     textAlign: TextAlign.left,
                   ),

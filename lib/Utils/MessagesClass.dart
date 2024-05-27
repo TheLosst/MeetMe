@@ -16,8 +16,8 @@ class Messages {
 
   factory Messages.fromJson(json) => Messages(
       mid: json['mid'].toString(),
-      fromUser: json['fromUsr'].toString(),
-      toUser: json['toUsr'].toString(),
+      fromUser: json['from_id'].toString(),
+      toUser: json['to_id'].toString(),
       text: json['text'].toString(),
       clock: json['clock'].toString(),
       is_read: json['is_read']);

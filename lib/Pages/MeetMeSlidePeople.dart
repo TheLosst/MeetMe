@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:progress_indicators/progress_indicators.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,16 @@ class _SlideMePageState extends State<SlideMePage> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   int amountOfCards = usersSwipeListData.length;
 
+  void shuffle<T>(List<T> list) {
+    for (var i = list.length - 1; i > 0; i--) {
+      var j = Random().nextInt(i + 1);
+      var temp = list[i];
+      list[i] = list[j];
+      list[j] = temp;
+    }
+  }
+
+
   Future<List<User>> createUsers() async {
     //List<DiskProp> test = await fetchDiskDescr();
     usersSwipeListData = await fetchAllUsers();
@@ -78,9 +89,10 @@ class _SlideMePageState extends State<SlideMePage> {
     final response = await http
         .get(Uri.parse('$connIp/api/users/getall/${userLoggined.id}'));
     if (response.statusCode == 200) {
-      var buff = json.decode(response.body);
-      print(buff);
-      return buff.map<User>(User.fromJson).toList();
+      var userList = json.decode(response.body).map<User>(User.fromJson).toList();
+      // Shuffle the user list using the Fisher-Yates shuffle algorithm
+      shuffle(userList);
+      return userList;
     } else {
       throw Exception('Все сломалось!');
     }
@@ -128,43 +140,43 @@ class _SlideMePageState extends State<SlideMePage> {
                 )),
           ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.02),
-          SizedBox(
-            child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                ),
-                onPressed: () {
-                  Push().PushTo(MeetMeSearchPage(), context);
-                },
-                icon: Image.asset("lib/Icons/search 1.png",
-                    color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
-                label: Text(
-                  "Избранное",
-                  style: TextStyle(color: Colors.black),
-                )),
-          ),
+          // SizedBox(
+          //   child: ElevatedButton.icon(
+          //       style: ElevatedButton.styleFrom(
+          //         primary: Colors.transparent,
+          //         shadowColor: Colors.transparent,
+          //       ),
+          //       onPressed: () {
+          //         Push().PushTo(MeetMeSearchPage(), context);
+          //       },
+          //       icon: Image.asset("lib/Icons/search 1.png",
+          //           color: Colors.black,
+          //           width: 30 / MediaQuery.of(context).devicePixelRatio,
+          //           height: 32 / MediaQuery.of(context).devicePixelRatio),
+          //       label: Text(
+          //         "Избранное",
+          //         style: TextStyle(color: Colors.black),
+          //       )),
+          // ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.17),
-          SizedBox(
-            child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                ),
-                onPressed: () {
-                  Push().PushTo(MeetMeEvents(), context);
-                },
-                icon: Image.asset("lib/Icons/bell 1.png",
-                    color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
-                label: Text(
-                  "События",
-                  style: TextStyle(color: Colors.black),
-                )),
-          ),
+          // SizedBox(
+          //   child: ElevatedButton.icon(
+          //       style: ElevatedButton.styleFrom(
+          //         primary: Colors.transparent,
+          //         shadowColor: Colors.transparent,
+          //       ),
+          //       onPressed: () {
+          //         Push().PushTo(MeetMeEvents(), context);
+          //       },
+          //       icon: Image.asset("lib/Icons/bell 1.png",
+          //           color: Colors.black,
+          //           width: 30 / MediaQuery.of(context).devicePixelRatio,
+          //           height: 32 / MediaQuery.of(context).devicePixelRatio),
+          //       label: Text(
+          //         "События",
+          //         style: TextStyle(color: Colors.black),
+          //       )),
+          // ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(

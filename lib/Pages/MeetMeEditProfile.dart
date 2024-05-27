@@ -121,43 +121,43 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 )),
           ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.02),
-          SizedBox(
-            child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                ),
-                onPressed: () {
-                  Push().PushTo(MeetMeSearchPage(), context);
-                },
-                icon: Image.asset("lib/Icons/search 1.png",
-                    color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
-                label: Text(
-                  "Избранное",
-                  style: TextStyle(color: Colors.black),
-                )),
-          ),
+          // SizedBox(
+          //   child: ElevatedButton.icon(
+          //       style: ElevatedButton.styleFrom(
+          //         primary: Colors.transparent,
+          //         shadowColor: Colors.transparent,
+          //       ),
+          //       onPressed: () {
+          //         Push().PushTo(MeetMeSearchPage(), context);
+          //       },
+          //       icon: Image.asset("lib/Icons/search 1.png",
+          //           color: Colors.black,
+          //           width: 30 / MediaQuery.of(context).devicePixelRatio,
+          //           height: 32 / MediaQuery.of(context).devicePixelRatio),
+          //       label: Text(
+          //         "Избранное",
+          //         style: TextStyle(color: Colors.black),
+          //       )),
+          // ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.17),
-          SizedBox(
-            child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                ),
-                onPressed: () {
-                  Push().PushTo(MeetMeEvents(), context);
-                },
-                icon: Image.asset("lib/Icons/bell 1.png",
-                    color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
-                label: Text(
-                  "События",
-                  style: TextStyle(color: Colors.black),
-                )),
-          ),
+          // SizedBox(
+          //   child: ElevatedButton.icon(
+          //       style: ElevatedButton.styleFrom(
+          //         primary: Colors.transparent,
+          //         shadowColor: Colors.transparent,
+          //       ),
+          //       onPressed: () {
+          //         Push().PushTo(MeetMeEvents(), context);
+          //       },
+          //       icon: Image.asset("lib/Icons/bell 1.png",
+          //           color: Colors.black,
+          //           width: 30 / MediaQuery.of(context).devicePixelRatio,
+          //           height: 32 / MediaQuery.of(context).devicePixelRatio),
+          //       label: Text(
+          //         "События",
+          //         style: TextStyle(color: Colors.black),
+          //       )),
+          // ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(
@@ -222,7 +222,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               image: NetworkImage(
                                 userLoggined.linkToIMG,
                               ),
-                              fit: BoxFit.fill)),
+                              fit: BoxFit.contain)),
                     ),
                     // child: Image.network(
                     //   userLoggined.linkToIMG,

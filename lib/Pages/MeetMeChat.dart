@@ -44,62 +44,65 @@ Future<List<Messages>> createMessage() async {
 }
 
 Future<List<Messages>> fetchAllMessage() async {
-  final response = await http.post(Uri.parse('$connIp/api/messages/getbetweenuser/'),
-      body: {"user_id": userLoggined.id.toString(),
-            "to_id": messageTo.id.toString()
-      });
+  final body = {
+    "user_id": userLoggined.id.toString(),
+    "to_id": messageTo.id.toString()
+  };
+  final response = await http.post(
+    Uri.parse('$connIp/api/messages/getbetweenuser/'),
+    headers: {'Content-Type': 'application/json'},
+    body: jsonEncode(body),
+  );
+  print("_____load messages_____");
+  print(response.body);
   if (response.statusCode == 200) {
     var buff = json.decode(response.body);
-    print("object");
-    print(buff);
-    print("object");
     return buff.map<Messages>(Messages.fromJson).toList();
   } else {
     throw Exception('Все сломалось!');
   }
 }
 
-
-Future sentMessage(String s) async{
-  final response = await http.post(Uri.parse('$connIp/sendMessage.php'),
-      body: {"fromUsr": userLoggined.id.toString(),
-              "toUsr": messageTo.id.toString(),
-              "text": s
-      });
+Future sentMessage(String s) async {
+  final body = {
+    "from_id": userLoggined.id.toString(),
+    "to_id": messageTo.id.toString(),
+    "text": s
+  };
+  final response = await http.post(Uri.parse('$connIp/api/messages/send'),
+      headers: {'Content-Type': 'application/json'}, body: jsonEncode(body));
+  print("______send messages______");
+  print(messageTo.id.toString());
   print(json.decode(response.body));
 }
 
-Future<List<ListMessages>> getListSendedUsers() async{
-  final response = await http.get(Uri.parse('$connIp/api/messages/getallforlist/${userLoggined.id}'));
+Future<List<ListMessages>> getListSendedUsers() async {
+  final response = await http
+      .get(Uri.parse('$connIp/api/messages/getallforlist/${userLoggined.id}'));
   print(json.decode(response.body));
-  return json.decode(response.body).map<ListMessages>(ListMessages.fromJson).toList();
+  return json
+      .decode(response.body)
+      .map<ListMessages>(ListMessages.fromJson)
+      .toList();
 }
 
-Future<List<ListMessages>> buildListMess() async{
+Future<List<ListMessages>> buildListMess() async {
   toUsers = await getListSendedUsers();
-  var kek;
   print("1111toUsers11111");
-  for (var toUser in toUsers) {
-    if (toUser.id == userLoggined.id){
-      kek += toUser;
-    }
-  }
-  toUsers = kek;
-  print(kek.length);
+  toUsers.removeWhere((item) => item.id == userLoggined.id);
+  print(toUsers.length);
   print("1111toUsers1111");
-  return kek;
+  return toUsers;
 }
-
 
 Future<void> createUsers() async {
   //List<DiskProp> test = await fetchDiskDescr();
   usersSwipeListData = await fetchAllUsers();
-  }
-
+}
 
 Future<List<User>> fetchAllUsers() async {
   final response =
-  await http.get(Uri.parse('$connIp/api/users/getall/${userLoggined.id}'));
+      await http.get(Uri.parse('$connIp/api/users/getall/${userLoggined.id}'));
   if (response.statusCode == 200) {
     var buff = json.decode(response.body);
     print(buff);
@@ -108,7 +111,6 @@ Future<List<User>> fetchAllUsers() async {
     throw Exception('Все сломалось!');
   }
 }
-
 
 class MeetMeChatPage extends StatefulWidget {
   const MeetMeChatPage({Key? key}) : super(key: key);
@@ -155,43 +157,43 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                 )),
           ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.02),
-          SizedBox(
-            child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                ),
-                onPressed: () {
-                  Push().PushTo(MeetMeSearchPage(), context);
-                },
-                icon: Image.asset("lib/Icons/search 1.png",
-                    color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
-                label: Text(
-                  "Избранное",
-                  style: TextStyle(color: Colors.black),
-                )),
-          ),
+          // SizedBox(
+          //   child: ElevatedButton.icon(
+          //       style: ElevatedButton.styleFrom(
+          //         primary: Colors.transparent,
+          //         shadowColor: Colors.transparent,
+          //       ),
+          //       onPressed: () {
+          //         Push().PushTo(MeetMeSearchPage(), context);
+          //       },
+          //       icon: Image.asset("lib/Icons/search 1.png",
+          //           color: Colors.black,
+          //           width: 30 / MediaQuery.of(context).devicePixelRatio,
+          //           height: 32 / MediaQuery.of(context).devicePixelRatio),
+          //       label: Text(
+          //         "Избранное",
+          //         style: TextStyle(color: Colors.black),
+          //       )),
+          // ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.17),
-          SizedBox(
-            child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                ),
-                onPressed: () {
-                  Push().PushTo(MeetMeEvents(), context);
-                },
-                icon: Image.asset("lib/Icons/bell 1.png",
-                    color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
-                label: Text(
-                  "События",
-                  style: TextStyle(color: Colors.black),
-                )),
-          ),
+          // SizedBox(
+          //   child: ElevatedButton.icon(
+          //       style: ElevatedButton.styleFrom(
+          //         primary: Colors.transparent,
+          //         shadowColor: Colors.transparent,
+          //       ),
+          //       onPressed: () {
+          //         Push().PushTo(MeetMeEvents(), context);
+          //       },
+          //       icon: Image.asset("lib/Icons/bell 1.png",
+          //           color: Colors.black,
+          //           width: 30 / MediaQuery.of(context).devicePixelRatio,
+          //           height: 32 / MediaQuery.of(context).devicePixelRatio),
+          //       label: Text(
+          //         "События",
+          //         style: TextStyle(color: Colors.black),
+          //       )),
+          // ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(
@@ -342,20 +344,31 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                     height: 800,
                     child: FutureBuilder<List<ListMessages>>(
                       future: buildListMess(),
-                      builder: (BuildContext context, AsyncSnapshot<List<ListMessages>?> snapshot) {
+                      builder: (BuildContext context,
+                          AsyncSnapshot<List<ListMessages>?> snapshot) {
                         if (snapshot.connectionState == ConnectionState.done) {
                           return ListView.builder(
-                            itemCount: toUsers.length,
-                            itemBuilder: (BuildContext context, int index) =>
-                                NewContactWidget(
-                                    user,
-                                    context,
-                                    Color.fromRGBO(255, 239, 246, 1),
-                                    usersSwipeListData.elementAt(searchUsers(toUsers.elementAt(index).id)).targetMeet,
-                                    usersSwipeListData.elementAt(searchUsers(toUsers.elementAt(index).id)).username,
-                                    usersSwipeListData.elementAt(searchUsers(toUsers.elementAt(index).id)).linkToIMG,
-                                    true, searchUsers(toUsers.elementAt(index).id))
-                          );
+                              itemCount: toUsers.length,
+                              itemBuilder: (BuildContext context, int index) =>
+                                  NewContactWidget(
+                                      user,
+                                      context,
+                                      Color.fromRGBO(255, 239, 246, 1),
+                                      usersSwipeListData
+                                          .elementAt(searchUsers(
+                                              toUsers.elementAt(index).id))
+                                          .targetMeet,
+                                      usersSwipeListData
+                                          .elementAt(searchUsers(
+                                              toUsers.elementAt(index).id))
+                                          .username,
+                                      usersSwipeListData
+                                          .elementAt(searchUsers(
+                                              toUsers.elementAt(index).id))
+                                          .linkToIMG,
+                                      true,
+                                      searchUsers(
+                                          toUsers.elementAt(index).id)));
                         } else {
                           return Center(
                             child: CollectionSlideTransition(
@@ -396,7 +409,9 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                                 messageTo.username.isEmpty
                                     ? " "
                                     : messageTo.username,
-                                messageTo.linkToIMG,false,0),
+                                messageTo.linkToIMG,
+                                false,
+                                0),
                           )),
                       Padding(
                         padding: EdgeInsets.only(top: 170, left: 64),
@@ -422,25 +437,29 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                                             MeetMeBubble(
                                       text: mes.elementAt(index).text,
                                       color: Color.fromRGBO(237, 212, 223, 1),
-                                      seen: true,
+                                      seen: mes.elementAt(index).is_read,
                                       tail: false,
-                                      isSender: mes.elementAt(index).fromUser == userLoggined.id.toString() ? true : false,
-                                      nameSender: usersSwipeListData.elementAt(searchUsers(int.parse(mes.elementAt(index).fromUser))).username,
+                                      isSender:int.parse(mes.elementAt(index).fromUser) ==
+                                              userLoggined.id
+                                          ? true
+                                          : false,
+                                      nameSender: usersSwipeListData
+                                          .elementAt(searchUsers(int.parse(
+                                          mes.elementAt(index).fromUser)))
+                                          .username,
+                                    ),
+                                  );
+                                } else {
+                                  return Center(
+                                    child: CollectionSlideTransition(
+                                      children: const <Widget>[
+                                        Icon(Icons.accessible),
+                                        Icon(Icons.arrow_right_alt),
+                                        Icon(Icons.accessible_forward_sharp),
+                                      ],
                                     ),
                                   );
                                 }
-                                else
-                                  {
-                                    return Center(
-                                      child: CollectionSlideTransition(
-                                        children: const <Widget>[
-                                          Icon(Icons.accessible),
-                                          Icon(Icons.arrow_right_alt),
-                                          Icon(Icons.accessible_forward_sharp),
-                                        ],
-                                      ),
-                                    );
-                                  }
                               }),
                         ),
                       ),
@@ -451,7 +470,7 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                             child: MeetMeMessageBar(
                               sendButtonColor: Color.fromRGBO(232, 189, 208, 1),
                               messageBarColor: Colors.transparent,
-                              onSend: (_) => sentMessage(_),
+                              onSend: (_) => {sentMessage(_), setState(() {})},
                               actions: [
                                 Padding(
                                   padding: EdgeInsets.only(left: 27),
@@ -465,7 +484,9 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                                   padding: EdgeInsets.only(left: 27, right: 27),
                                   child: InkWell(
                                     child: Image.network("lib/Temp/Smile.png"),
-                                    onTap: () {setState(() {});},
+                                    onTap: () {
+                                      setState(() {});
+                                    },
                                   ),
                                 ),
                               ],

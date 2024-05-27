@@ -8,18 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc5055e4-e1dc-4b60-af46-b4123aeff14a" name="Changes" comment="Идет переделка под другой бэк, сейчас готово:&#10;Профиль, вход и регистрация">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Affiliation Database" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Affiliation Database" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension Rules/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Pages/ItemsToBuild/MyCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/ItemsToBuild/MyCard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Pages/ItemsToBuild/NewContatsWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/ItemsToBuild/NewContatsWidget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeChat.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeChat.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeEditProfile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeEditProfile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeEvents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeEvents.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeProfile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeProfile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeSearch.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeSearch.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/MeetMeSlidePeople.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/MeetMeSlidePeople.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Utils/ListMessages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/ListMessages.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Utils/MessagesClass.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/MessagesClass.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utils/MyChatBubles.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils/MyChatBubles.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +69,7 @@
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
     "last_opened_file_path": "C:/tools/flutter/bin/cache/dart-sdk",
-    "settings.editor.selected.configurable": "dart.settings",
+    "settings.editor.selected.configurable": "preferences.editor",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -153,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716811575260</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Идет переделка под другой бэк, сейчас готово:&#10;Профиль, вход и регистрация">
+      <created>1716828749838</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716828749838</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

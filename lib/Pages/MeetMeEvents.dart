@@ -49,12 +49,6 @@ Future<void> createUsers() async {
 int searchUsers(int inputID){
   for(int i = 0; i < usersSwipeListData.length; i++)
     {
-      // print("________________");
-      // print(inputID);
-      // print(usersSwipeListData.elementAt(i).id);
-      // print(usersSwipeListData.elementAt(i).email);
-      // print(i);
-      // print("________________");
       if (usersSwipeListData.elementAt(i).id == inputID)
         {
           print("${usersSwipeListData.elementAt(i).id} -> ${i}");
@@ -126,41 +120,41 @@ class _MeetMeEventsPageState extends State<MeetMeEventsPage> {
                 )),
           ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.02),
-          SizedBox(
-            child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                ),
-                onPressed: () {Push().PushTo(MeetMeSearchPage(), context);},
-                icon: Image.asset("lib/Icons/search 1.png",
-                    color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
-                label: Text(
-                  "Избранное",
-                  style: TextStyle(color: Colors.black),
-                )),
-          ),
+          // SizedBox(
+          //   child: ElevatedButton.icon(
+          //       style: ElevatedButton.styleFrom(
+          //         primary: Colors.transparent,
+          //         shadowColor: Colors.transparent,
+          //       ),
+          //       onPressed: () {Push().PushTo(MeetMeSearchPage(), context);},
+          //       icon: Image.asset("lib/Icons/search 1.png",
+          //           color: Colors.black,
+          //           width: 30 / MediaQuery.of(context).devicePixelRatio,
+          //           height: 32 / MediaQuery.of(context).devicePixelRatio),
+          //       label: Text(
+          //         "Избранное",
+          //         style: TextStyle(color: Colors.black),
+          //       )),
+          // ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.17),
-          SizedBox(
-            child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                ),
-                onPressed: () {
-                  Push().PushTo(MeetMeEvents(), context);
-                },
-                icon: Image.asset("lib/Icons/bell 1.png",
-                    color: Colors.black,
-                    width: 30 / MediaQuery.of(context).devicePixelRatio,
-                    height: 32 / MediaQuery.of(context).devicePixelRatio),
-                label: Text(
-                  "События",
-                  style: TextStyle(color: Colors.black),
-                )),
-          ),
+          // SizedBox(
+          //   child: ElevatedButton.icon(
+          //       style: ElevatedButton.styleFrom(
+          //         primary: Colors.transparent,
+          //         shadowColor: Colors.transparent,
+          //       ),
+          //       onPressed: () {
+          //         Push().PushTo(MeetMeEvents(), context);
+          //       },
+          //       icon: Image.asset("lib/Icons/bell 1.png",
+          //           color: Colors.black,
+          //           width: 30 / MediaQuery.of(context).devicePixelRatio,
+          //           height: 32 / MediaQuery.of(context).devicePixelRatio),
+          //       label: Text(
+          //         "События",
+          //         style: TextStyle(color: Colors.black),
+          //       )),
+          // ),
           SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(

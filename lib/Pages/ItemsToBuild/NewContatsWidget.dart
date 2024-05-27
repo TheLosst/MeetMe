@@ -82,14 +82,19 @@ Widget NewContactWidget(User? user, context, var color, String text,
           Padding(
             padding: EdgeInsets.only(left: 400),
             child: SizedBox(
-              width: 30,
-              height: 30,
+              width: 120,
+              height: 80,
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  onPrimary: Colors.pinkAccent,
+                ),
                 onPressed: () {
                   messageTo = usersSwipeListData.elementAt(i);
                   Push().PushTo(MeetMeChat(), context);
                 },
-                child: Text("M"),
+                child: Text("Написать"),
               ),
             ),
           )

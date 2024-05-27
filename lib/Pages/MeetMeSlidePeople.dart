@@ -21,7 +21,6 @@ import 'ItemsToBuild/MyCard.dart';
 import 'MeetMeSearch.dart';
 import 'Registration/who_do_you_want_to_meet.dart';
 
-
 class SlideMe extends StatelessWidget {
   const SlideMe({Key? key}) : super(key: key);
 
@@ -62,7 +61,8 @@ class _SlideMePageState extends State<SlideMePage> {
         likeAction: () {
           print("LIKE");
           //if(userLoggined.liked)
-          userLoggined.liked += ",${usersSwipeListData.elementAt(i).id.toString()}";
+          userLoggined.liked +=
+              ",${usersSwipeListData.elementAt(i).id.toString()}";
           print(userLoggined.liked);
         },
         nopeAction: () {
@@ -75,8 +75,8 @@ class _SlideMePageState extends State<SlideMePage> {
   }
 
   Future<List<User>> fetchAllUsers() async {
-    final response =
-    await http.get(Uri.parse('$connIp/GetListUsersMeetMe.php'));
+    final response = await http
+        .get(Uri.parse('$connIp/api/users/getall/${userLoggined.id}'));
     if (response.statusCode == 200) {
       var buff = json.decode(response.body);
       print(buff);
@@ -90,12 +90,8 @@ class _SlideMePageState extends State<SlideMePage> {
   void initState() {
     //print(cock[0].aboutUser);
 
-
     matchEngine = MatchEngine(swipeItems: _swipeItems);
-    super.
-    initState
-      (
-    );
+    super.initState();
   }
 
   @override
@@ -105,12 +101,8 @@ class _SlideMePageState extends State<SlideMePage> {
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
-            width: 267 / MediaQuery
-                .of(context)
-                .devicePixelRatio,
-            height: 105 / MediaQuery
-                .of(context)
-                .devicePixelRatio,
+            width: 267 / MediaQuery.of(context).devicePixelRatio,
+            height: 105 / MediaQuery.of(context).devicePixelRatio,
             child: IconButton(
               icon: SvgPicture.asset("lib/Svg/MeetMe.svg"),
               onPressed: () {},
@@ -128,21 +120,14 @@ class _SlideMePageState extends State<SlideMePage> {
                 },
                 icon: Image.asset("lib/Icons/heart 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "Знакомства",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery
-              .of(context)
-              .size
-              .height * 0.02),
+          SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
@@ -154,21 +139,14 @@ class _SlideMePageState extends State<SlideMePage> {
                 },
                 icon: Image.asset("lib/Icons/search 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "Избранное",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery
-              .of(context)
-              .size
-              .height * 0.17),
+          SizedBox(width: MediaQuery.of(context).size.height * 0.17),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
@@ -180,21 +158,14 @@ class _SlideMePageState extends State<SlideMePage> {
                 },
                 icon: Image.asset("lib/Icons/bell 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "События",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery
-              .of(context)
-              .size
-              .height * 0.02),
+          SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
@@ -206,21 +177,14 @@ class _SlideMePageState extends State<SlideMePage> {
                 },
                 icon: Image.asset("lib/Icons/conversation 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "Сообщения",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery
-              .of(context)
-              .size
-              .height * 0.02),
+          SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
@@ -232,12 +196,8 @@ class _SlideMePageState extends State<SlideMePage> {
                 },
                 icon: Image.asset("lib/Icons/user 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "Профиль",
                   style: TextStyle(color: Colors.black),
@@ -246,10 +206,10 @@ class _SlideMePageState extends State<SlideMePage> {
         ],
       ),
       body: Center(
-          child: FutureBuilder<List<User>>(
-              future: createUsers(),
-              builder:
-              (BuildContext context, AsyncSnapshot<List<User>?> snapshot) {
+        child: FutureBuilder<List<User>>(
+            future: createUsers(),
+            builder:
+                (BuildContext context, AsyncSnapshot<List<User>?> snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 return SwipeCards(
                   matchEngine: matchEngine,
@@ -272,6 +232,7 @@ class _SlideMePageState extends State<SlideMePage> {
                 );
               }
             }),
-    ),);
+      ),
+    );
   }
 }

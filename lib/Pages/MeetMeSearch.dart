@@ -307,10 +307,10 @@ class _MeetMeSearchPageState extends State<MeetMeSearchPage> {
                                       user,
                                       context,
                                       Color.fromRGBO(255, 239, 246, 1),
-                                      usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).targetMeet,
-                                      usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).username,
-                                      usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).linkToIMG,
-                                      true, searchUsers(int.parse(toUsers.elementAt(index).id)))
+                                      usersSwipeListData.elementAt(searchUsers(toUsers.elementAt(index).id)).targetMeet,
+                                      usersSwipeListData.elementAt(searchUsers(toUsers.elementAt(index).id)).username,
+                                      usersSwipeListData.elementAt(searchUsers(toUsers.elementAt(index).id)).linkToIMG,
+                                      true, searchUsers(toUsers.elementAt(index.toInt()).id))
                           );
                         } else {
                           return Center(

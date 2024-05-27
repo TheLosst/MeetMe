@@ -1,9 +1,9 @@
 class ListMessages {
   ListMessages({required this.id});
 
-  late String id;
+  late int id;
 
   factory ListMessages.fromJson(json) => ListMessages(
-        id: json['toUsr'].toString(),
+        id: json['id'],
       );
 }

@@ -171,7 +171,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               image: NetworkImage(
                                 userLoggined.linkToIMG,
                               ),
-                              fit: BoxFit.fill)),
+                              fit: BoxFit.contain)),
                     ),
                     // child: Image.network(
                     //   userLoggined.linkToIMG,

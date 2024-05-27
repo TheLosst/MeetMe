@@ -44,9 +44,9 @@ Future<List<Messages>> createMessage() async {
 }
 
 Future<List<Messages>> fetchAllMessage() async {
-  final response = await http.post(Uri.parse('$connIp/getMessage.php'),
-      body: {"id": userLoggined.id.toString(),
-            "toid": messageTo.id.toString()
+  final response = await http.post(Uri.parse('$connIp/api/messages/getbetweenuser/'),
+      body: {"user_id": userLoggined.id.toString(),
+            "to_id": messageTo.id.toString()
       });
   if (response.statusCode == 200) {
     var buff = json.decode(response.body);
@@ -70,19 +70,24 @@ Future sentMessage(String s) async{
 }
 
 Future<List<ListMessages>> getListSendedUsers() async{
-  final response = await http.post(Uri.parse('$connIp/getUserIDToSended.php'),
-      body: {"id": userLoggined.id.toString(),
-      });
+  final response = await http.get(Uri.parse('$connIp/api/messages/getallforlist/${userLoggined.id}'));
   print(json.decode(response.body));
   return json.decode(response.body).map<ListMessages>(ListMessages.fromJson).toList();
 }
 
 Future<List<ListMessages>> buildListMess() async{
   toUsers = await getListSendedUsers();
-  print("toUsers");
-  print(toUsers.length);
-  print("toUsers");
-  return toUsers;
+  var kek;
+  print("1111toUsers11111");
+  for (var toUser in toUsers) {
+    if (toUser.id == userLoggined.id){
+      kek += toUser;
+    }
+  }
+  toUsers = kek;
+  print(kek.length);
+  print("1111toUsers1111");
+  return kek;
 }
 
 
@@ -94,7 +99,7 @@ Future<void> createUsers() async {
 
 Future<List<User>> fetchAllUsers() async {
   final response =
-  await http.get(Uri.parse('$connIp/GetListUsersMeetMe.php'));
+  await http.get(Uri.parse('$connIp/api/users/getall/${userLoggined.id}'));
   if (response.statusCode == 200) {
     var buff = json.decode(response.body);
     print(buff);
@@ -346,10 +351,10 @@ class _MeetMeChatPageState extends State<MeetMeChatPage> {
                                     user,
                                     context,
                                     Color.fromRGBO(255, 239, 246, 1),
-                                    usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).targetMeet,
-                                    usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).username,
-                                    usersSwipeListData.elementAt(searchUsers(int.parse(toUsers.elementAt(index).id))).linkToIMG,
-                                    true, searchUsers(int.parse(toUsers.elementAt(index).id)))
+                                    usersSwipeListData.elementAt(searchUsers(toUsers.elementAt(index).id)).targetMeet,
+                                    usersSwipeListData.elementAt(searchUsers(toUsers.elementAt(index).id)).username,
+                                    usersSwipeListData.elementAt(searchUsers(toUsers.elementAt(index).id)).linkToIMG,
+                                    true, searchUsers(toUsers.elementAt(index).id))
                           );
                         } else {
                           return Center(

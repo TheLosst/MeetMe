@@ -51,12 +51,13 @@ class MyCard extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.23,
 
                     foregroundDecoration: BoxDecoration(
+                      color: Colors.transparent,
                       borderRadius: BorderRadius.circular(40),
                         image: DecorationImage(
                             image: NetworkImage(
                               user!.linkToIMG,
                             ),
-                            fit: BoxFit.fill
+                            fit: BoxFit.contain
                         )
                     ),
                   )
@@ -88,7 +89,7 @@ class MyCard extends StatelessWidget {
                         FittedBox(
                             fit: BoxFit.contain,
                             child: Text(
-                              "Из Москвы, 1 км от вас",
+                              "Из Москвы",
                               softWrap: true,
                               style: TextStyle(
                                   fontSize: 24, color: Colors.black45),

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -42,6 +44,9 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
+  List<String> items = ['Мужчина', 'Женщина', 'Боевой вертолёт Apache'];
+  String? dropdownValue = 'Мужчина';
+
   @override
   Widget build(BuildContext context) {
     final separator = numberFormatSymbols["US"]?.DECIMAL_SEP ?? '.';
@@ -60,19 +65,28 @@ class _EditProfilePageState extends State<EditProfilePage> {
     TextEditingController aboutUsr =
         TextEditingController(text: "Описание: ${userLoggined.aboutUser} ");
     TextEditingController linkToIMG =
-    TextEditingController(text: userLoggined.linkToIMG);
+        TextEditingController(text: userLoggined.linkToIMG);
+
     Future editAndGetProfile() async {
-      var apiUrl = "$connIp/EditProfile.php";
-      var response = await http.post(Uri.parse(apiUrl),
-          body: {
-            "id":         userLoggined.id.toString(),
-            "username":   userLoggined.username,
-            "birthDate":  userLoggined.birthDay,
-            "withMeets":  userLoggined.withMeets,
-            "targetMeet": userLoggined.targetMeet,
-            "about":      userLoggined.aboutUser,
-            "link":       userLoggined.linkToIMG
-      });
+      var apiUrl = "$connIp/api/users/edit/${userLoggined.id}";
+
+      final body = {
+        "username": userLoggined.username,
+        "birthDate": userLoggined.birthDay,
+        "withMeets": userLoggined.withMeets,
+        "targetMeet": userLoggined.targetMeet,
+        "about": userLoggined.aboutUser,
+        "link": userLoggined.linkToIMG,
+        "sex": userLoggined.sex,
+        "targetHeight": userLoggined.targetHeight,
+        "targetFat": userLoggined.targetFat
+      };
+
+      final response = await http.put(
+        Uri.parse(apiUrl),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(body),
+      );
       //print(user.username);
       print(response.body);
     }
@@ -204,13 +218,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       width: 480,
                       height: 620,
                       foregroundDecoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            userLoggined.linkToIMG,
-                          ),
-                          fit: BoxFit.fill
-                        )
-                      ),
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                userLoggined.linkToIMG,
+                              ),
+                              fit: BoxFit.fill)),
                     ),
                     // child: Image.network(
                     //   userLoggined.linkToIMG,
@@ -277,6 +289,41 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               height: 11,
                               width: 1,
                             ),
+                            Center(
+                              child: DropdownButton<String>(
+                                value: dropdownValue,
+                                // The currently selected value
+                                icon: Icon(Icons.arrow_downward),
+                                // Down arrow icon
+                                iconSize: 18,
+                                elevation: 16,
+                                // Shadow effect
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 16),
+                                // Text style
+                                underline: Container(
+                                  height: 2,
+                                  color: Colors.grey, // Underline color
+                                ),
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    dropdownValue =
+                                        newValue; // Update the selected value
+                                  });
+                                },
+                                items: items.map<DropdownMenuItem<String>>(
+                                    (String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 11,
+                              width: 1,
+                            ),
                             Container(
                                 width: 500,
                                 height: 60,
@@ -332,12 +379,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           height: 80,
                           child: ElevatedButton(
                             onPressed: () {
-                              userLoggined.username = myName.text.toString().replaceFirst("Имя: ", "");
+                              userLoggined.username = myName.text
+                                  .toString()
+                                  .replaceFirst("Имя: ", "");
                               userLoggined.birthDay = age.text.toString();
-                              userLoggined.withMeets = myInterest.text.toString().replaceFirst("Меня интересует: ", "");
-                              userLoggined.targetMeet = targetMeet.text.toString().replaceFirst("Цель: ", "");
-                              userLoggined.aboutUser = aboutUsr.text.toString().replaceFirst("Описание: ", "");
+                              userLoggined.withMeets = myInterest.text
+                                  .toString()
+                                  .replaceFirst("Меня интересует: ", "");
+                              userLoggined.targetMeet = targetMeet.text
+                                  .toString()
+                                  .replaceFirst("Цель: ", "");
+                              userLoggined.aboutUser = aboutUsr.text
+                                  .toString()
+                                  .replaceFirst("Описание: ", "");
                               userLoggined.linkToIMG = linkToIMG.text;
+                              userLoggined.sex = dropdownValue!;
                               userLoggined.getAll();
                               editAndGetProfile();
                               Push().PushTo(Profile(), context);

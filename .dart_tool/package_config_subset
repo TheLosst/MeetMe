@@ -1,7 +1,3 @@
-meet_me
-2.17
-file:///C:/Users/ALEX2/AndroidStudioProjects/meet_me/
-file:///C:/Users/ALEX2/AndroidStudioProjects/meet_me/lib/
 async
 2.12
 file:///C:/tools/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/
@@ -222,4 +218,8 @@ flutter_test
 2.17
 file:///C:/tools/flutter/packages/flutter_test/
 file:///C:/tools/flutter/packages/flutter_test/lib/
+meet_me
+2.17
+file:///X:/MeetMe/
+file:///X:/MeetMe/lib/
 2

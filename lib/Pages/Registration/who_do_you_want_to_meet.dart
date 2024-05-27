@@ -92,7 +92,7 @@ class _WhoDoYouWantToMeetPageState extends State<WhoDoYouWantToMeetPage> {
                       width: 373,
                       height: 59,
                       getSexed: () {
-                        user.withMeets = "0";
+                        user.withMeets = "Мужчины";
                         chooseSex = "Мужчин ";
                         Push().PushTo(WhatIsYourPurposeOfDating(), context);
                       }),
@@ -102,7 +102,7 @@ class _WhoDoYouWantToMeetPageState extends State<WhoDoYouWantToMeetPage> {
                       width: 373,
                       height: 59,
                       getSexed: () {
-                        user.withMeets = "1";
+                        user.withMeets = "Женщины";
                         chooseSex = "Женщин ";
                         Push().PushTo(WhatIsYourPurposeOfDating(), context);
                       }),
@@ -112,7 +112,7 @@ class _WhoDoYouWantToMeetPageState extends State<WhoDoYouWantToMeetPage> {
                       width: 373,
                       height: 59,
                       getSexed: () {
-                        user.withMeets = "2";
+                        user.withMeets = "Все";
                         chooseSex = "Людей ";
                         Push().PushTo(WhatIsYourPurposeOfDating(), context);
                       }),

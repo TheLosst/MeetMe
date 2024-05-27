@@ -43,12 +43,8 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
-            width: 267 / MediaQuery
-                .of(context)
-                .devicePixelRatio,
-            height: 105 / MediaQuery
-                .of(context)
-                .devicePixelRatio,
+            width: 267 / MediaQuery.of(context).devicePixelRatio,
+            height: 105 / MediaQuery.of(context).devicePixelRatio,
             child: IconButton(
               icon: SvgPicture.asset("lib/Svg/MeetMe.svg"),
               onPressed: () {},
@@ -66,109 +62,84 @@ class _ProfilePageState extends State<ProfilePage> {
                 },
                 icon: Image.asset("lib/Icons/heart 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "Знакомства",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery
-              .of(context)
-              .size
-              .height * 0.02),
+          SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
-
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {Push().PushTo(MeetMeSearchPage(), context);},
+                onPressed: () {
+                  Push().PushTo(MeetMeSearchPage(), context);
+                },
                 icon: Image.asset("lib/Icons/search 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "Избранное",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery
-              .of(context)
-              .size
-              .height * 0.17),
+          SizedBox(width: MediaQuery.of(context).size.height * 0.17),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {Push().PushTo(MeetMeEvents(), context);},
+                onPressed: () {
+                  Push().PushTo(MeetMeEvents(), context);
+                },
                 icon: Image.asset("lib/Icons/bell 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "События",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery
-              .of(context)
-              .size
-              .height * 0.02),
+          SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {Push().PushTo(MeetMeChat(), context);},
+                onPressed: () {
+                  Push().PushTo(MeetMeChat(), context);
+                },
                 icon: Image.asset("lib/Icons/conversation 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "Сообщения",
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          SizedBox(width: MediaQuery
-              .of(context)
-              .size
-              .height * 0.02),
+          SizedBox(width: MediaQuery.of(context).size.height * 0.02),
           SizedBox(
             child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
                   shadowColor: Colors.transparent,
                 ),
-                onPressed: () {Push().PushTo(Profile(), context);},
+                onPressed: () {
+                  Push().PushTo(Profile(), context);
+                },
                 icon: Image.asset("lib/Icons/user 1.png",
                     color: Colors.black,
-                    width: 30 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio,
-                    height: 32 / MediaQuery
-                        .of(context)
-                        .devicePixelRatio),
+                    width: 30 / MediaQuery.of(context).devicePixelRatio,
+                    height: 32 / MediaQuery.of(context).devicePixelRatio),
                 label: Text(
                   "Профиль",
                   style: TextStyle(color: Colors.black),
@@ -200,9 +171,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               image: NetworkImage(
                                 userLoggined.linkToIMG,
                               ),
-                              fit: BoxFit.fill
-                          )
-                      ),
+                              fit: BoxFit.fill)),
                     ),
                     // child: Image.network(
                     //   userLoggined.linkToIMG,
@@ -229,6 +198,15 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             SizedBox(
                               height: 42,
+                              width: 1,
+                            ),
+                            Text(
+                              "Пол: ${userLoggined.sex}",
+                              style: TextStyle(
+                                  fontSize: 28, fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(
+                              height: 11,
                               width: 1,
                             ),
                             Text(
@@ -303,8 +281,16 @@ class _ProfilePageState extends State<ProfilePage> {
                           width: 363,
                           height: 80,
                           child: ElevatedButton(
-                            onPressed: () {Push().PushTo(EditProfile(), context);},
-                            child: Text("Редактировать анкету" ,style: TextStyle(color: Colors.black, fontSize: 28, fontWeight: FontWeight.w600),),
+                            onPressed: () {
+                              Push().PushTo(EditProfile(), context);
+                            },
+                            child: Text(
+                              "Редактировать анкету",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w600),
+                            ),
                             style: ButtonStyle(
                                 backgroundColor: MaterialStateColor.resolveWith(
                                     (states) =>
@@ -325,17 +311,23 @@ class _ProfilePageState extends State<ProfilePage> {
                           height: 80,
                           child: ElevatedButton(
                             onPressed: () {},
-                            child: Text("Поделиться анкетой" ,style: TextStyle(color: Colors.black, fontSize: 28, fontWeight: FontWeight.w600),),
+                            child: Text(
+                              "Поделиться анкетой",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w600),
+                            ),
                             style: ButtonStyle(
                                 backgroundColor: MaterialStateColor.resolveWith(
-                                        (states) =>
+                                    (states) =>
                                         Color.fromRGBO(255, 239, 246, 1)),
                                 shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
+                                        RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(15),
                                         side:
-                                        BorderSide(color: Colors.white)))),
+                                            BorderSide(color: Colors.white)))),
                           )),
                     ],
                   ),
@@ -346,4 +338,3 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-

@@ -15,6 +15,8 @@ import 'package:http/http.dart' as http;
 
 import 'package:crypto/crypto.dart';
 
+import 'login_page.dart';
+
 
 
 class FoundMatches extends StatelessWidget {
@@ -49,74 +51,48 @@ class _FoundMatchesPageState extends State<FoundMatchesPage> {
   final TextEditingController passwordInputController = TextEditingController();
 
   register(User user1) async {
-    var apiUrl = "$connIp/registerMeetMe.php";
+    var apiUrl = "$connIp/api/users/register";
     String securePassword = md5.convert(utf8.encode(user1.password)).toString();
-    var response = await http.post(
+    final body = {
+      "sex": user1.sex,
+      "username": user1.username,
+      "password": securePassword,
+      "email": user1.email,
+      "withMeets": user1.withMeets.toString(),
+      "targetMeet": user1.targetMeet.toString(),
+      "targetHeight": user1.targetHeight.toString(),
+      "targetFat": user1.targetFat.toString(),
+      "birthDay": user1.birthDay,
+      "liked": user1.liked,
+      "aboutUser": user1.aboutUser
+    };
+    final response = await http.post(
       Uri.parse(apiUrl),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Accept": "application/json",
-        'Accept': '*/*'
-      },
-      body: {
-        "sex": user1.sex,
-        "username": user1.username,
-        "password": securePassword,
-        "email": user1.email,
-        "withMeets": user1.withMeets.toString(),
-        "targetMeet": user1.targetMeet.toString(),
-        "targetHeight": user1.targetHeight.toString(),
-        "targetFat": user1.targetFat.toString(),
-        "birthDay": user1.birthDay,
-        "liked": user1.liked,
-        "aboutUser": user1.aboutUser
-      },
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(body),
     );
     print("aaaaaaaaaaaaaa \n\n${response.body}\n\n aaaaaaaaaaaa");
     var data = json.decode(response.body);
-
-    switch (data) {
-      case ("Error"):
-        // Fluttertoast.showToast(
-        //     msg: "Ошибка регистрации",
-        //     toastLength: Toast.LENGTH_LONG,
-        //     fontSize: 26,
-        //     gravity: ToastGravity.TOP,
-        //     backgroundColor: Colors.transparent,
-        //     textColor: Colors.white);
-        print("USER ALREADY EXISTS: ${user.username}");
-        break;
-      case ("Success"):
-        print("\n\nSUCCESS\nUSER ADDED: ${user.username}");
-        // Fluttertoast.showToast(
-        //     msg: "Регистрация пользователя "
-        //         "${usernameController.text}"
-        //         " успешна",
-        //     toastLength: Toast.LENGTH_SHORT,
-        //     fontSize: 15,
-        //     gravity: ToastGravity.TOP,
-        //     backgroundColor: Colors.transparent,
-        //     textColor: Colors.white);
-        Push().PushTo(Profile(), context);
-        break;
-      default:
-        // Fluttertoast.showToast(
-        //     msg: "Нет соеденения с сервером",
-        //     toastLength: Toast.LENGTH_LONG,
-        //     fontSize: 26,
-        //     gravity: ToastGravity.TOP,
-        //     backgroundColor: Colors.transparent,
-        //     textColor: Colors.white);
-        break;
+    if(response.statusCode == 201){
+      showDialog(
+          context: context,
+          builder: (BuildContext) {
+            return AlertDialog(
+              content: Text(json.decode(response.body).toString()),
+              title: Text("Успешная регистрация"),
+            );
+          });
+      Push().PushTo(Login(), context);
+    } else {
+      showDialog(
+          context: context,
+          builder: (BuildContext) {
+            return AlertDialog(
+              content: Text(json.decode(response.body).toString()),
+              title: Text("Ошибка"),
+            );
+          });
     }
-
-    // if (data == "Error") {
-    //
-    //   return "E";
-    // } else {
-    //
-    //   return "S";
-    // }
   }
   @override
   Widget build(BuildContext context1) {
@@ -213,8 +189,8 @@ class _FoundMatchesPageState extends State<FoundMatchesPage> {
                       user.password = passwordInputController.text;
                       //User test = User();
                       register(user);
-                      user.getAll();
-                      Push().PushTo(SlideMe(), context);
+                      //user.getAll();
+                      //Push().PushTo(SlideMe(), context);
                     },
                   )
                 ],

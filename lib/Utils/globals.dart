@@ -25,7 +25,7 @@ List<ListMessages> toUsers = [];
 
 int matchNumber = Random().nextInt(1500)%10*10;
 
-User user = User(id: 0 ,sex: "0",withMeets: "null",targetMeet: "null",targetHeight: "null",targetFat: "null",username: "null",birthDay: "null",email: "null",password: "null",liked: "0",aboutUser: "Тут пусто...",linkToIMG: "null");
+User user = User(id: 0 ,sex: "0",withMeets: "null",targetMeet: "null",targetHeight: "null",targetFat: "null",username: "null",birthDay: "null",email: "null",liked: "0",aboutUser: "Тут пусто...",linkToIMG: "null");
 late User userLoggined;
 User messageTo = user;
 
@@ -33,7 +33,7 @@ late Future<List<User>> usersToSwipe;
 
 MatchEngine matchEngine = MatchEngine();
 
-String connIp = "http://192.168.56.101:80";
+String connIp = "http://localhost:5000";
 List<Messages> mes = [];
 
 final regExpLogin = RegExp(

@@ -100,7 +100,7 @@ class _ChooseSexPageState extends State<ChooseSexPage> {
                                 width: 183,
                                 height: 59,
                                 getSexed: () {
-                                  user.sex = "1";
+                                  user.sex = "Мужчина";
                                   Push().PushTo(WhoDoYouWantToMeet(), context);
                                 }),
                             SizedBox(
@@ -112,7 +112,7 @@ class _ChooseSexPageState extends State<ChooseSexPage> {
                               width: 183,
                               height: 59,
                               getSexed: () {
-                                user.sex = "0";
+                                user.sex = "Женщина";
                                 Push().PushTo(WhoDoYouWantToMeet(), context);
                               },
                             ),

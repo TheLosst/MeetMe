@@ -19,12 +19,10 @@ class User {
       required this.username,
       required this.birthDay,
       required this.email,
-      required this.password,
       required this.liked,
       required this.aboutUser,
       required this.id,
-      required this.linkToIMG
-      });
+      required this.linkToIMG});
 
   int id = 0;
   String sex = "1";
@@ -41,20 +39,18 @@ class User {
   String linkToIMG = "null";
 
   factory User.fromJson(json) => User(
-        id: json['id'],
-        sex: json['sex'].toString(),
-        withMeets: json['withMeets'].toString(),
-        targetMeet: json['targetMeet'].toString(),
-        targetHeight: json['targetHeight'].toString(),
-        targetFat: json['targetFat'].toString(),
-        username: json['username'].toString(),
-        birthDay: json['birthDay'].toString(),
-        email: json['email'].toString(),
-        password: json['password'].toString(),
-        liked: json['liked'].toString(),
-        aboutUser: json['aboutUser'].toString(),
-        linkToIMG: json['linkToImg'].toString()
-      );
+      id: json['id'],
+      sex: json['sex'].toString(),
+      username: json['username'].toString(),
+      email: json['email'].toString(),
+      withMeets: json['withmeets'].toString(),
+      targetMeet: json['targetmeet'].toString(),
+      targetHeight: json['targetheight'].toString(),
+      targetFat: json['targetfat'].toString(),
+      birthDay: json['birthday'].toString(),
+      aboutUser: json['aboutuser'].toString(),
+      liked: json['liked'].toString(),
+      linkToIMG: json['linktoimg'].toString());
 
   void getAll() {
     print(sex);
@@ -65,6 +61,5 @@ class User {
     print(username);
     print(birthDay);
     print(email);
-    print(password);
   }
 }

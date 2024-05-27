@@ -38,10 +38,7 @@ class LoginPage extends StatefulWidget {
 
   @override
   State<LoginPage> createState() => _LoginPageState();
-
 }
-
-
 
 class _LoginPageState extends State<LoginPage> {
   @override
@@ -49,49 +46,56 @@ class _LoginPageState extends State<LoginPage> {
     TextEditingController emailInputController = TextEditingController();
     TextEditingController passwordInputController = TextEditingController();
     Future login(User user) async {
-      var apiUrl = "$connIp/loginMeetMe.php"; //Устанавливаем ссылку на php скрипт для работы с базой данных
-      var profilepage = "$connIp/profileMeetMe.php";
-      String securePassword = md5.convert(utf8.encode(user.password)).toString();
-      var response = await http.post(Uri.parse(apiUrl), body: {
-        "email": user.email,
-        "password": securePassword,
-      });
-      var responseProfile = await http.post(Uri.parse(profilepage), body: {
-        "email": user.email,
-      });
-      print("Login php ${responseProfile.body}");
-      var data = json.decode(response.body);
-
-
+      var apiUrl = "$connIp/api/users/login";
+      String securePassword = md5.convert(utf8.encode(passwordInputController.text)).toString();
+      final body = {
+        'email': emailInputController.text,
+        'password': securePassword
+      };
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(body),
+      );
+      if (response.statusCode == 200) {
+        print("${response.statusCode} ${json.decode(response.body)}");
+        final profileJsonParsed = jsonDecode(response.body);
+        print(profileJsonParsed);
+        userLoggined = User.fromJson((profileJsonParsed));
+        print(userLoggined.email);
+        print("\n\nSUCCESSFUL LOGIN, NICE :)");
+        Push().PushTo(Profile(), context);
+      } else {
+        showDialog(
+            context: context,
+            builder: (BuildContext) {
+              return AlertDialog(
+                content: Text(json.decode(response.body).toString()),
+                title: Text("Ошибка"),
+              );
+            });
+        print("${response.statusCode} ${json.decode(response.body)}");
+      }
+      // var responseProfile = await http.post(Uri.parse(profilepage), body: {
+      //   "email": user.email,
+      // });
+      // print("Login php ${responseProfile.body}");
+      // var data = json.decode(response.body);
 
       //tempProfile = tempProfile.replaceFirst('[{email: ', '').replaceFirst('}]', '');
 
-      if (data == "Success") {
-
-
-        final profileJsonParsed = jsonDecode(responseProfile.body);
-        print(profileJsonParsed);
-        userLoggined = User.fromJson((profileJsonParsed[0]));
-        print(userLoggined.email);
-        print("\n\nSUCCESSFUL LOGIN, NICE :)");
-        //user.setName(user.username);
-        //user.setPassword(" ");
-        //user.setEmail(tempProfile);
-
-        Push().PushTo(Profile(), context);
-        //Navigator.push(context, MaterialPageRoute(builder: (context)=>DashBoard(),),);
-      } else {
-        // Fluttertoast.showToast(
-        //     msg: "Ошибка входа, логин и/или пароль неверны!",
-        //     toastLength: Toast.LENGTH_LONG,
-        //     fontSize: 26,
-        //     gravity: ToastGravity.TOP,
-        //     backgroundColor: Colors.transparent,
-        //     textColor: Colors.white
-        // );
-        print("ERROR: WRONG PASSWORD OR USERNAME");
-      }
+      // if (data == "Success") {
+      //   final profileJsonParsed = jsonDecode(responseProfile.body);
+      //   print(profileJsonParsed);
+      //   userLoggined = User.fromJson((profileJsonParsed[0]));
+      //   print(userLoggined.email);
+      //   print("\n\nSUCCESSFUL LOGIN, NICE :)");
+      //   Push().PushTo(Profile(), context);
+      // } else {
+      //   print("ERROR: WRONG PASSWORD OR USERNAME");
+      // }
     }
+
     return Scaffold(
       appBar: NewGradientAppBar(
         title: SizedBox(
@@ -173,12 +177,9 @@ class _LoginPageState extends State<LoginPage> {
                     text: "Войти в аккаунт",
                     width: 350,
                     height: 59,
-                    getSexed: () {
-                      user.email = emailInputController.text;
-                      user.password = passwordInputController.text;
-                      //User test = User();
-                      login(user);
-                      user.getAll();
+                    getSexed: () async {
+                      await login(user);
+                      //user.getAll();
                     },
                   )
                 ],
